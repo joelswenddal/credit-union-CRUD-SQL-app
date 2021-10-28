@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Customers</title>
+    <link href="styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1>Manage Customers</h1>
+    <p>This page allows you to add/remove customers</p>
+    <section>
+        <table>
+            <tr>
+                <th scope="col">Account ID</th>
+                <th scope="col">Customer ID</th>
+                
+            </tr>
+            <tr>
+                <th scope="row">sample</th>
+                <th scope="row">sample</th>
+                
+            </tr>
+        </table>
+    </section>
+    <br />
+    <section>
+        <form action="http://localhost:3000/accounts_customers" method="POST">
+            <fieldset>
+                <legend>Add a Customer to an existing Account</legend>
+                <legend><b>Customer</b></legend>
+                <label>Customer ID
+                    <input type="text" name="firstName" size="20" maxlength="30" required="required">
+                </label>
+                <br>
+                <label>Account ID
+                    <input type="text" name="middleName" size="20" maxlength="30" required="required">
+                </label>
+                <br>
+                
+                <br>
+                <button type="create" value="Create Customer">ADD</button>
+            </fieldset>
+        </form>
+    </section>
+    <br>
+    
+    <section>
+        <form action="http://localhost:3000/customers" method="POST">
+            <fieldset>
+                <legend>Remove a Customer from an Multi-User Account</legend>
+                <legend><b>Customer</b></legend>
+                <label>Customer ID
+                    <input type="text" name="CustomerID" size="20" maxlength="30" required="required">
+                </label>
+                <br>
+                <label>Account ID
+                    <input type="text" name="AccountID" size="20" maxlength="30" required="required">
+                </label>
+                <br>
+
+                <br>
+                <button type="delete" value="DeleteCustomer">REMOVE</button>
+            </fieldset>
+        </form>
+    </section>
+
+
+
+</body>
+
+</html>
