@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Accounts</title>
+    <link href="styles.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+    <header class="nav-bar">
+        <div class="nav-links">
+            <span><a class="material-icons" href="index.html">home</a></span>
+            <span>Credit Union DB</span>
+            <span id="space-divider">|</span>
+            <span><i>Customers</i></span>
+            <span><i>Accounts</i></span>
+            <span><i>Account-Types</i></span>
+            <span><i>Transactions</i></span>
+
+        </div>
+    </header>
+
+    <h1>Manage Accounts</h1>
+    <p>This page allows you to add accounts</p>
+    <section>
+        <table>
+            <tr>
+                <th scope="col">Account ID</th>
+                <th scope="col">Account Type</th>
+                <th scope="col">Balance</th>
+
+            </tr>
+            <tr>
+                <th scope="row">12345</th>
+                <td>Checking</td>
+                <td>$500,000.00</td>
+
+            </tr>
+        </table>
+    </section>
+    <br />
+    <section>
+        <form action="http://localhost:3000/accounts" method="POST">
+            <fieldset>
+                <legend>Add Account</legend>
+                <legend><b>Account</b></legend>
+                <label>Customer ID
+                    <input type="text" name="CustomerId" size="20" maxlength="30" required="required">
+                </label>
+                <br>
+                <label>Account Type
+                    <input type="text" name="AccountType" size="20" maxlength="30" required="required">
+                </label>
+                <br>
+                <label>Balance
+                    <input type="text" name="Balance" size="20" maxlength="30" required="required">
+                </label>
+                <br>
+                <button type="create" value="CreateAccount">ADD</button>
+            </fieldset>
+        </form>
+    </section>
+</body>
+
+</html>

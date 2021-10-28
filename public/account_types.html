@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Account Type</title>
+    <link href="styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1>Manage Account Types</h1>
+    <p>This page allows you to add account types</p>
+    <section>
+        <table>
+            <tr>
+                <th scope="col">Account Type</th>
+                <th scope="col">Interest Rate</th>
+            </tr>
+            <tr>
+                <th scope="row">Checking</th>
+                <td>2.5%</td>
+
+            </tr>
+        </table>
+    </section>
+    <br />
+    <section>
+        <form action="http://localhost:3000/account_types" method="POST">
+            <fieldset>
+                <legend>Add Account Type</legend>
+                <legend><b>Type</b></legend>
+                <label>Type Name
+                    <input type="text" name="TypeName" size="20" maxlength="30" required="required">
+                </label>
+                <br>
+                <label>Associated Interest Rate
+                    <input type="Text" name="InterestRate" size="20" maxlength="30" required="required">
+                </label>
+                <br>
+
+                <br>
+                <button type="create" value="CreateAccountType">ADD</button>
+            </fieldset>
+        </form>
+    </section>
+</body>
+
+</html>

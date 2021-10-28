@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Customers</title>
+    <link href="styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1>Manage Transactions</h1>
+    <p>This page allows you to add transactions</p>
+    <section>
+        <table>
+            <tr>
+                <th scope="col">Transaction ID</th>
+                <th scope="col">Account ID</th>
+                <th scope="col">Date/Time Stamp</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Transaction Type</th>
+            </tr>
+            <tr>
+                <th scope="row">9781341</th>
+                <td>12345</td>
+                <td>2021-01-01 09:30:00</td>
+                <td>$1000</td>
+                <td>Withdrawal</td>
+            </tr>
+        </table>
+    </section>
+    <br />
+    <section>
+        <form action="http://localhost:3000/transactions" method="POST">
+            <fieldset>
+                <legend>Add a Transaction</legend>
+                <legend><b>Transaction</b></legend>
+                <label>Account ID
+                    <input type="text" name="AccountID" size="20" maxlength="30" required="required">
+                </label>
+                <br>
+                <label>Amount
+                    <input type="text" name="Amount" size="20" maxlength="30" required="required">
+                </label>
+                <br>
+                <label>Transaction Type
+                    <input type="text" name="TransactionType" size="20" maxlength="30" required="required">
+                </label>
+                <br>
+
+                <br>
+                <button type="create" value="create">ADD</button>
+            </fieldset>
+        </form>
+    </section>
+</body>
+
+</html>

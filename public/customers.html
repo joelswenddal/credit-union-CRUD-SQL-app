@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Customers</title>
+    <link href="styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1>Manage Customers</h1>
+    <p>This page allows you to add/remove/search customers</p>
+    <section>
+        <table>
+            <tr>
+                <th scope="col">Customer ID</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Middle Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">SSN</th>
+                <th scope="col">DOB</th>
+                <th scope="col">Street Address</th>
+                <th scope="col">City</th>
+                <th scope="col">State</th>
+                <th scope="col">Zip</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Email</th>
+            </tr>
+            <tr>
+                <th scope="row">Sample</th>
+                <td>Joe</td>
+                <td>H</td>
+                <td>Smith</td>
+                <td>555-55-5555</td>
+                <td>2000-10-31</td>
+                <td>34 Pine Street</td>
+                <td>Nowhereville</td>
+                <td>CA</td>
+                <td>95555</td>
+                <td>444-555-5555</td>
+                <td>joeyh@fakemail.com</td>
+            </tr>
+        </table>
+    </section>
+    <br />
+    <section>
+        <form action="http://localhost:3000/customers" method="POST">
+            <fieldset>
+                <legend>Add a Customer</legend>
+                <legend><b>Customer</b></legend>
+                <label>First Name
+                    <input type="text" name="firstName" size="20" maxlength="30" required="required">
+                </label>
+                <br>
+                <label>Middle Name
+                    <input type="text" name="middleName" size="20" maxlength="30" required="required">
+                </label>
+                <br>
+                <label>Last Name
+                    <input type="text" name="lastName" size="20" maxlength="30" required="required">
+                </label>
+                <br>
+                <label>SSN
+                    <input type="text" name="ssn" size="15" maxlength="11" required="required">
+                </label>
+                <br>
+                <label>DOB
+                    <input type="date" name="dob" size="15" maxlength="11" required="required">
+                </label>
+                <br />
+                <label>Street Address
+                    <input type="text" name="street" size="30" maxlength="80" required="required">
+                </label>
+                <br>
+                <label>City
+                    <input type="text" name="city" size="20" maxlength="30" required="required">
+                </label>
+                <br>
+                <label>State
+                    <input type="text" name="state" size="5" maxlength="2" required="required">
+                </label>
+                <br>
+                <label>Zip
+                    <input type="number" name="zip" size="10" maxlength="5" required="required">
+                </label>
+                <br>
+                <label>Email
+                    <input type="email" name="email" size="30" maxlength="40" required="required"
+                        placeholder="joesmith@example.com">
+                </label>
+                <br>
+                <button type="create" value="Create Customer">ADD</button>
+            </fieldset>
+        </form>
+    </section>
+    <br>
+    <section>
+        <form action="http://localhost:3000/customers" method="POST">
+            <fieldset>
+                <legend>Search for Customer</legend>
+                <legend><b>Customer</b></legend>
+                <label>First Name
+                    <input type="text" name="firstName" size="20" maxlength="30" required="required">
+                </label>
+                <br>
+                <label>Middle Name
+                    <input type="text" name="middleName" size="20" maxlength="30" required="required">
+                </label>
+                <br>
+                <label>Last Name
+                    <input type="text" name="lastName" size="20" maxlength="30" required="required">
+                </label>
+                <br>
+                <label>SSN
+                    <input type="text" name="ssn" size="15" maxlength="11" required="required">
+                </label>
+                <br>
+                <label>DOB
+                    <input type="date" name="dob" size="30" maxlength="40" required="required">
+                </label>
+                <br>
+                <button type="create" value="SearchCustomer">SEARCH</button>
+            </fieldset>
+        </form>
+    </section>
+    <br>
+    <section>
+        <form action="http://localhost:3000/customers" method="POST">
+            <fieldset>
+                <legend>Delete Customer</legend>
+                <legend><b>Customer</b></legend>
+                <label>Customer ID
+                    <input type="text" name="CustomerID" size="20" maxlength="30" required="required">
+                </label>
+                <br>
+                <label>SSN
+                    <input type="text" name="ssn" size="20" maxlength="30" required="required">
+                </label>
+                <br>
+
+                <br>
+                <button type="delete" value="Delete Customer">DELETE</button>
+            </fieldset>
+        </form>
+    </section>
+
+
+
+</body>
+
+</html>
