@@ -38,6 +38,16 @@ body {
     text-decoration: none;
   }
 
+.nav-links:link {
+    color:#ece9e2;
+    text-decoration: none;
+}
+
+.nav-links:visited {
+    color:#ece9e2;
+    text-decoration: none;
+}
+
 .material-icons:link {
     color:#f3c04a;
     text-decoration: none;

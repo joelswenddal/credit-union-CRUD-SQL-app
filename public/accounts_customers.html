@@ -3,24 +3,39 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Customers</title>
+    <title>Accounts_Customers</title>
     <link href="styles.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body>
-    <h1>Manage Customers</h1>
-    <p>This page allows you to add/remove customers</p>
+    <header class="nav-bar">
+        <div class="nav-links">
+            <span><a class="material-icons" href="index.html">home</a></span>
+            <span>Credit Union DB</span>
+            <span id="space-divider">|</span>
+            <span><i><a href="customers.html">Customers</a></i></span>
+            <span><i><a href="accounts.html">Accounts</a></i></span>
+            <span><i><a href="transactions.html">Transactions</a></i></span>
+            <span><i><a href="account_types.html">Account Types</a></i></span>
+            <span><i><a href="accounts_customers.html">Accounts_Customers</a></i></span>
+
+        </div>
+    </header>
+    <h1>Manage Accounts_Customers</h1>
+    <p>This page allows you to add/remove Account_Customer entries</p>
     <section>
         <table>
             <tr>
                 <th scope="col">Account ID</th>
                 <th scope="col">Customer ID</th>
-                
+
             </tr>
             <tr>
                 <th scope="row">sample</th>
                 <th scope="row">sample</th>
-                
+
             </tr>
         </table>
     </section>
@@ -38,14 +53,14 @@
                     <input type="text" name="middleName" size="20" maxlength="30" required="required">
                 </label>
                 <br>
-                
+
                 <br>
                 <button type="create" value="Create Customer">ADD</button>
             </fieldset>
         </form>
     </section>
     <br>
-    
+
     <section>
         <form action="http://localhost:3000/accounts_customers" method="POST">
             <fieldset>
