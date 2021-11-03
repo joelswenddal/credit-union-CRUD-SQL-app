@@ -142,6 +142,57 @@
     <section>
         <form action="http://localhost:3000/customers" method="POST">
             <fieldset>
+                <legend>Edit a Customer</legend>
+                <legend><b>Customer</b></legend>
+                <label>First Name
+                    <input type="text" name="firstName" size="20" maxlength="30" required="required">
+                </label>
+                <br>
+                <label>Middle Name
+                    <input type="text" name="middleName" size="20" maxlength="30" required="required">
+                </label>
+                <br>
+                <label>Last Name
+                    <input type="text" name="lastName" size="20" maxlength="30" required="required">
+                </label>
+                <br>
+                <label>SSN
+                    <input type="text" name="ssn" size="15" maxlength="11" required="required">
+                </label>
+                <br>
+                <label>DOB
+                    <input type="date" name="dob" size="15" maxlength="11" required="required">
+                </label>
+                <br />
+                <label>Street Address
+                    <input type="text" name="street" size="30" maxlength="80" required="required">
+                </label>
+                <br>
+                <label>City
+                    <input type="text" name="city" size="20" maxlength="30" required="required">
+                </label>
+                <br>
+                <label>State
+                    <input type="text" name="state" size="5" maxlength="2" required="required">
+                </label>
+                <br>
+                <label>Zip
+                    <input type="number" name="zip" size="10" maxlength="5" required="required">
+                </label>
+                <br>
+                <label>Email
+                    <input type="email" name="email" size="30" maxlength="40" required="required"
+                        placeholder="joesmith@example.com">
+                </label>
+                <br>
+                <button type="update" value="Update Customer">EDIT</button>
+            </fieldset>
+        </form>
+    </section>
+    <br>
+    <section>
+        <form action="http://localhost:3000/customers" method="POST">
+            <fieldset>
                 <legend>Delete Customer</legend>
                 <legend><b>Customer</b></legend>
                 <label>Customer ID
