@@ -139,6 +139,66 @@
       <div class="col">
         <form action="http://localhost:3000/customers" method="POST">
           <fieldset>
+            <legend>Edit a Customer</legend>
+            <div class="mb-3">
+              <label>First Name
+                <input type="text" name="firstName" size="20" maxlength="30" required="required">
+              </label>
+            </div>
+            <div class="mb-3">
+              <label>Middle Name
+                <input type="text" name="middleName" size="20" maxlength="30" required="required">
+              </label>
+            </div>
+
+            <div class="mb-3">
+              <label>Last Name
+                <input type="text" name="lastName" size="20" maxlength="30" required="required">
+              </label>
+            </div>
+            <div class="mb-3">
+              <label>SSN
+                <input type="text" name="ssn" size="15" maxlength="11" required="required">
+              </label>
+            </div>
+            <div class="mb-3">
+              <label>DOB
+                <input type="date" name="dob" size="15" maxlength="11" required="required">
+              </label>
+            </div>
+            <div class="mb-3">
+              <label>Street Address
+                <input type="text" name="street" size="30" maxlength="80" required="required">
+              </label>
+            </div>
+            <div class="mb-3">
+              <label>City
+                <input type="text" name="city" size="20" maxlength="30" required="required">
+              </label>
+            </div>
+            <div class="mb-3">
+              <label>State
+                <input type="text" name="state" size="5" maxlength="2" required="required">
+              </label>
+            </div>
+            <div class="mb-3">
+              <label>Zip
+                <input type="number" name="zip" size="10" maxlength="5" required="required">
+              </label>
+            </div>
+            <div class="mb-3">
+              <label>Email
+                <input type="email" name="email" size="30" maxlength="40" required="required"
+                  placeholder="joesmith@example.com">
+              </label>
+            </div>
+            <button type="submit" class="btn btn-secondary" value="UpdateCustomer">UPDATE</button>
+          </fieldset>
+        </form>
+      </div>
+      <div class="col">
+        <form action="http://localhost:3000/customers" method="POST">
+          <fieldset>
             <legend>Delete Customer</legend>
             <div class="mb-3">
               <label>Customer ID
