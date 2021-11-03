@@ -80,8 +80,26 @@
             </fieldset>
         </form>
     </section>
+    <br>
+    <section>
+        <form action="http://localhost:3000/accounts_customers" method="POST">
+            <fieldset>
+                <legend>Remove an Account from a Customer</legend>
+                <legend><b>Customer</b></legend>
+                <label>Customer ID
+                    <input type="text" name="CustomerID" size="20" maxlength="30" required="required">
+                </label>
+                <br>
+                <label>Account ID
+                    <input type="text" name="AccountID" size="20" maxlength="30" required="required">
+                </label>
+                <br>
 
-
+                <br>
+                <button type="delete" value="RemoveAccountFromCustomer">REMOVE</button>
+            </fieldset>
+        </form>
+    </section>
 
 </body>
 
