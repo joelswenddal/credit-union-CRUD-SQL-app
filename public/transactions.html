@@ -3,70 +3,106 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Customers</title>
-    <link href="styles.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Transactions</title>
 </head>
 
 <body>
-    <header class="nav-bar">
-        <div class="nav-links">
-            <span><a class="material-icons" href="index.html">home</a></span>
-            <span>Credit Union DB</span>
-            <span id="space-divider">|</span>
-            <span><i><a href="customers.html">Customers</a></i></span>
-            <span><i><a href="accounts.html">Accounts</a></i></span>
-            <span><i><a href="transactions.html">Transactions</a></i></span>
-            <span><i><a href="account_types.html">Account Types</a></i></span>
-            <span><i><a href="accounts_customers.html">Accounts_Customers</a></i></span>
-
-        </div>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">Credit Union DB</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link" href="customers.html">Customers</a>
+                        <a class="nav-link" href="accounts.html">Accounts</a>
+                        <a class="nav-link" href="transactions.html">Transactions</a>
+                        <a class="nav-link" href="account_types.html">Account Types</a>
+                        <a class="nav-link" href="accounts_customers.html">Accounts_Customers</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
     </header>
-    <h1>Manage Transactions</h1>
-    <p>This page allows you to add transactions</p>
-    <section>
-        <table>
-            <tr>
-                <th scope="col">Transaction ID</th>
-                <th scope="col">Account ID</th>
-                <th scope="col">Date/Time Stamp</th>
-                <th scope="col">Amount</th>
-                <th scope="col">Transaction Type</th>
-            </tr>
-            <tr>
-                <th scope="row">9781341</th>
-                <td>12345</td>
-                <td>2021-01-01 09:30:00</td>
-                <td>$1000</td>
-                <td>Withdrawal</td>
-            </tr>
-        </table>
-    </section>
-    <br />
-    <section>
-        <form action="http://localhost:3000/transactions" method="POST">
-            <fieldset>
-                <legend>Add a Transaction</legend>
-                <legend><b>Transaction</b></legend>
-                <label>Account ID
-                    <input type="text" name="AccountID" size="20" maxlength="30" required="required">
-                </label>
-                <br>
-                <label>Amount
-                    <input type="text" name="Amount" size="20" maxlength="30" required="required">
-                </label>
-                <br>
-                <label>Transaction Type
-                    <input type="text" name="TransactionType" size="20" maxlength="30" required="required">
-                </label>
-                <br>
+    <div class="container">
+        <div class="row">
+            <h1>Manage Transactions</h1>
+            <p>This page allows you to add transactions</p>
+        </div>
+        <div class="row-justify-content-center">
+            <div class="col">
+                <table class="table table-striped table-hover">
+                    <thead class="thead-dark">
 
-                <br>
-                <button type="create" value="create">ADD</button>
-            </fieldset>
-        </form>
-    </section>
+                        <tr>
+                            <th scope="col">Transaction ID</th>
+                            <th scope="col">Account ID</th>
+                            <th scope="col">Date/Time Stamp</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Transaction Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">9781341</th>
+                            <td>12345</td>
+                            <td>2021-01-01 09:30:00</td>
+                            <td>$1000</td>
+                            <td>Withdrawal</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <form action="http://localhost:3000/transactions" method="POST">
+                        <fieldset>
+                            <legend>Add a Transaction</legend>
+                            <div class="mb-3">
+                                <label>Account ID
+                                    <input type="text" name="AccountID" size="20" maxlength="30" required="required">
+                                </label>
+                            </div>
+                            <div class="mb-3">
+                                <label>Amount
+                                    <input type="text" name="Amount" size="20" maxlength="30" required="required">
+                                </label>
+                            </div>
+                            <div class="mb-3">
+                                <label>Transaction Type
+                                    <input type="text" name="TransactionType" size="20" maxlength="30"
+                                        required="required">
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-secondary" value="createTransaction">ADD</button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+  -->
 </body>
 
 </html>
