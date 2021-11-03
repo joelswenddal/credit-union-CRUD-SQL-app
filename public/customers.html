@@ -1,166 +1,207 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>Customers</title>
-    <link href="styles.css" rel="stylesheet" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <title>Customers</title>
 </head>
 
 <body>
-    <header class="nav-bar">
-        <div class="nav-links">
-            <span><a class="material-icons" href="index.html">home</a></span>
-            <span>Credit Union DB</span>
-            <span id="space-divider">|</span>
-            <span><i><a href="customers.html">Customers</a></i></span>
-            <span><i><a href="accounts.html">Accounts</a></i></span>
-            <span><i><a href="transactions.html">Transactions</a></i></span>
-            <span><i><a href="account_types.html">Account Types</a></i></span>
-            <span><i><a href="accounts_customers.html">Accounts_Customers</a></i></span>
-
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Credit Union DB</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            <a class="nav-link" href="customers.html">Customers</a>
+            <a class="nav-link" href="accounts.html">Accounts</a>
+            <a class="nav-link" href="transactions.html">Transactions</a>
+            <a class="nav-link" href="account_types.html">Account Types</a>
+            <a class="nav-link" href="accounts_customers.html">Accounts_Customers</a>
+          </div>
         </div>
-    </header>
-    <h1>Manage Customers</h1>
-    <p>This page allows you to add/remove/search customers</p>
-    <section>
-        <table>
+      </div>
+    </nav>
+  </header>
+  <div class="container">
+    <div class="row">
+      <h1>Manage Customers</h1>
+    </div>
+    <div class="row-justify-content-center">
+      <div class="col">
+        <table class="table table-striped table-hover">
+          <thead class="thead-dark">
             <tr>
-                <th scope="col">Customer ID</th>
-                <th scope="col">First Name</th>
-                <th scope="col">Middle Name</th>
-                <th scope="col">Last Name</th>
-                <th scope="col">SSN</th>
-                <th scope="col">DOB</th>
-                <th scope="col">Street Address</th>
-                <th scope="col">City</th>
-                <th scope="col">State</th>
-                <th scope="col">Zip</th>
-                <th scope="col">Phone</th>
-                <th scope="col">Email</th>
+              <th scope="col">Customer ID</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Middle Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">SSN</th>
+              <th scope="col">DOB</th>
+              <th scope="col">Street Address</th>
+              <th scope="col">City</th>
+              <th scope="col">State</th>
+              <th scope="col">Zip</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Email</th>
             </tr>
+          </thead>
+          <tbody>
             <tr>
-                <th scope="row">Sample</th>
-                <td>Joe</td>
-                <td>H</td>
-                <td>Smith</td>
-                <td>555-55-5555</td>
-                <td>2000-10-31</td>
-                <td>34 Pine Street</td>
-                <td>Nowhereville</td>
-                <td>CA</td>
-                <td>95555</td>
-                <td>444-555-5555</td>
-                <td>joeyh@fakemail.com</td>
+              <th scope="row">Sample</th>
+              <td>Joe</td>
+              <td>H</td>
+              <td>Smith</td>
+              <td>555-55-5555</td>
+              <td>2000-10-31</td>
+              <td>34 Pine Street</td>
+              <td>Nowhereville</td>
+              <td>CA</td>
+              <td>95555</td>
+              <td>444-555-5555</td>
+              <td>joeyh@fakemail.com</td>
             </tr>
+          </tbody>
         </table>
-    </section>
-    <br />
-    <section>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
         <form action="http://localhost:3000/customers" method="POST">
-            <fieldset>
-                <legend>Add a Customer</legend>
-                <legend><b>Customer</b></legend>
-                <label>First Name
-                    <input type="text" name="firstName" size="20" maxlength="30" required="required">
-                </label>
-                <br>
-                <label>Middle Name
-                    <input type="text" name="middleName" size="20" maxlength="30" required="required">
-                </label>
-                <br>
-                <label>Last Name
-                    <input type="text" name="lastName" size="20" maxlength="30" required="required">
-                </label>
-                <br>
-                <label>SSN
-                    <input type="text" name="ssn" size="15" maxlength="11" required="required">
-                </label>
-                <br>
-                <label>DOB
-                    <input type="date" name="dob" size="15" maxlength="11" required="required">
-                </label>
-                <br />
-                <label>Street Address
-                    <input type="text" name="street" size="30" maxlength="80" required="required">
-                </label>
-                <br>
-                <label>City
-                    <input type="text" name="city" size="20" maxlength="30" required="required">
-                </label>
-                <br>
-                <label>State
-                    <input type="text" name="state" size="5" maxlength="2" required="required">
-                </label>
-                <br>
-                <label>Zip
-                    <input type="number" name="zip" size="10" maxlength="5" required="required">
-                </label>
-                <br>
-                <label>Email
-                    <input type="email" name="email" size="30" maxlength="40" required="required"
-                        placeholder="joesmith@example.com">
-                </label>
-                <br>
-                <button type="create" value="Create Customer">ADD</button>
-            </fieldset>
+          <fieldset>
+            <legend>Add a Customer</legend>
+            <div class="mb-3">
+              <label>First Name
+                <input type="text" name="firstName" size="20" maxlength="30" required="required">
+              </label>
+            </div>
+            <div class="mb-3">
+              <label>Middle Name
+                <input type="text" name="middleName" size="20" maxlength="30" required="required">
+              </label>
+            </div>
+
+            <div class="mb-3">
+              <label>Last Name
+                <input type="text" name="lastName" size="20" maxlength="30" required="required">
+              </label>
+            </div>
+            <div class="mb-3">
+              <label>SSN
+                <input type="text" name="ssn" size="15" maxlength="11" required="required">
+              </label>
+            </div>
+            <div class="mb-3">
+              <label>DOB
+                <input type="date" name="dob" size="15" maxlength="11" required="required">
+              </label>
+            </div>
+            <div class="mb-3">
+              <label>Street Address
+                <input type="text" name="street" size="30" maxlength="80" required="required">
+              </label>
+            </div>
+            <div class="mb-3">
+              <label>City
+                <input type="text" name="city" size="20" maxlength="30" required="required">
+              </label>
+            </div>
+            <div class="mb-3">
+              <label>State
+                <input type="text" name="state" size="5" maxlength="2" required="required">
+              </label>
+            </div>
+            <div class="mb-3">
+              <label>Zip
+                <input type="number" name="zip" size="10" maxlength="5" required="required">
+              </label>
+            </div>
+            <div class="mb-3">
+              <label>Email
+                <input type="email" name="email" size="30" maxlength="40" required="required"
+                  placeholder="joesmith@example.com">
+              </label>
+            </div>
+            <button type="submit" class="btn btn-secondary" value="CreateCustomer">ADD</button>
+          </fieldset>
         </form>
-    </section>
-    <br>
-    <section>
+      </div>
+      <div class="col">
         <form action="http://localhost:3000/customers" method="POST">
-            <fieldset>
-                <legend>Search for Customer</legend>
-                <legend><b>Customer</b></legend>
-                <label>First Name
-                    <input type="text" name="firstName" size="20" maxlength="30" required="required">
-                </label>
-                <br>
-                <label>Middle Name
-                    <input type="text" name="middleName" size="20" maxlength="30" required="required">
-                </label>
-                <br>
-                <label>Last Name
-                    <input type="text" name="lastName" size="20" maxlength="30" required="required">
-                </label>
-                <br>
-                <label>SSN
-                    <input type="text" name="ssn" size="15" maxlength="11" required="required">
-                </label>
-                <br>
-                <label>DOB
-                    <input type="date" name="dob" size="30" maxlength="40" required="required">
-                </label>
-                <br>
-                <button type="create" value="SearchCustomer">SEARCH</button>
-            </fieldset>
+          <fieldset>
+            <legend>Delete Customer</legend>
+            <div class="mb-3">
+              <label>Customer ID
+                <input type="text" name="CustomerID" size="20" maxlength="30" required="required">
+              </label>
+            </div>
+            <div class="mb-3">
+              <label>SSN
+                <input type="text" name="ssn" size="20" maxlength="30" required="required">
+              </label>
+            </div>
+            <button type="submit" class="btn btn-secondary" value="DeleteCustomer">DELETE</button>
+          </fieldset>
         </form>
-    </section>
-    <br>
-    <section>
+      </div>
+      <div class="col">
         <form action="http://localhost:3000/customers" method="POST">
-            <fieldset>
-                <legend>Delete Customer</legend>
-                <legend><b>Customer</b></legend>
-                <label>Customer ID
-                    <input type="text" name="CustomerID" size="20" maxlength="30" required="required">
-                </label>
-                <br>
-                <label>SSN
-                    <input type="text" name="ssn" size="20" maxlength="30" required="required">
-                </label>
-                <br>
-
-                <br>
-                <button type="delete" value="Delete Customer">DELETE</button>
-            </fieldset>
+          <fieldset>
+            <legend>Search for Customer</legend>
+            <div class="mb-3">
+              <label>First Name
+                <input type="text" name="firstName" size="20" maxlength="30" required="required">
+              </label>
+            </div>
+            <div class="mb-3">
+              <label>Middle Name
+                <input type="text" name="middleName" size="20" maxlength="30" required="required">
+              </label>
+            </div>
+            <div class="mb-3">
+              <label>Last Name
+                <input type="text" name="lastName" size="20" maxlength="30" required="required">
+              </label>
+            </div>
+            <div class="mb-3">
+              <label>SSN
+                <input type="text" name="ssn" size="15" maxlength="11" required="required">
+              </label>
+            </div>
+            <div class="mb-3">
+              <label>DOB
+                <input type="date" name="dob" size="30" maxlength="40" required="required">
+              </label>
+            </div>
+            <button type="submit" class="btn btn-secondary" value="SearchCustomer">SEARCH</button>
+          </fieldset>
         </form>
-    </section>
+      </div>
+    </div>
+  </div>
 
+  <!-- Optional JavaScript; choose one of the two! -->
 
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
 
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
 </body>
 
 </html>
