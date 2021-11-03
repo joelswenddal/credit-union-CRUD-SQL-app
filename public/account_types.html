@@ -26,6 +26,7 @@
                         <a class="nav-link" href="accounts.html">Accounts</a>
                         <a class="nav-link" href="transactions.html">Transactions</a>
                         <a class="nav-link" href="account_types.html">Account Types</a>
+                        <a class="nav-link" href="offers.html">Special Offers</a>
                         <a class="nav-link" href="accounts_customers.html">Accounts_Customers</a>
                     </div>
                 </div>
@@ -44,12 +45,14 @@
                         <tr>
                             <th scope="col">Account Type</th>
                             <th scope="col">Interest Rate</th>
+                            <th scope="col">Special Offer</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <th scope="row">Checking</th>
                             <td>2.5%</td>
+                            <td>CAN BE NULL</td>
                         </tr>
                     </tbody>
                 </table>
@@ -70,7 +73,35 @@
                                 <input type="Text" name="InterestRate" size="20" maxlength="30" required="required">
                             </label>
                         </div>
+                        <div class="mb-3">
+                            <label>Special Offer
+                                <input type="Text" name="SpecialOffer" size="20" maxlength="30" >
+                            </label>
+                        </div>
                         <button type="submit" class="btn btn-secondary" value="CreateAccountType">ADD</button>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="col">
+                <form action="http://localhost:3000/account_types" method="POST">
+                    <fieldset>
+                        <legend>Edit Account Type</legend>
+                        <div class="mb-3">
+                            <label>Type Name
+                                <input type="text" name="TypeName" size="20" maxlength="30" required="required">
+                            </label>
+                        </div>
+                        <div class="mb-3">
+                            <label>Associated Interest Rate
+                                <input type="Text" name="InterestRate" size="20" maxlength="30" required="required">
+                            </label>
+                        </div>
+                        <div class="mb-3">
+                            <label>Special Offer
+                                <input type="Text" name="SpecialOffer" size="20" maxlength="30" >
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-secondary" value="EditAccountType">EDIT</button>
                     </fieldset>
                 </form>
             </div>
