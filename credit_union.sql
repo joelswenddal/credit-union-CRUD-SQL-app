@@ -28,7 +28,7 @@ CREATE TABLE accounts (
     account_ID int (9) NOT NULL AUTO_INCREMENT,
     account_type varchar(40) NOT NULL,
     balance decimal NOT NULL,
-    PRIMARY KEY (account_ID)
+    PRIMARY KEY (account_ID),
     UNIQUE (account_ID)
     )
     ENGINE=InnoDB; 
@@ -40,7 +40,7 @@ CREATE TABLE account_types (
     account_type varchar(40) NOT NULL,
     offer_ID int (9),
     interest_rate decimal NOT NULL,
-    PRIMARY KEY (account_type)
+    PRIMARY KEY (account_type),
     UNIQUE (account_type)
     )
     ENGINE=InnoDB;
@@ -57,7 +57,7 @@ CREATE TABLE special_offers (
     chequebook varchar(10),
     no_fee_transactions varchar(10),
     sign_up_bonus int(4),
-    PRIMARY KEY (offer_ID)
+    PRIMARY KEY (offer_ID),
     UNIQUE(offer_ID)
     )
     ENGINE=InnoDB;
@@ -70,7 +70,7 @@ CREATE TABLE transactions (
     date_time timestamp NOT NULL,
     amount decimal NOT NULL,
     transaction_type varchar (20) NOT NULL,
-    PRIMARY KEY (transaction_ID)
+    PRIMARY KEY (transaction_ID),
     UNIQUE(transaction_ID)
     )
     ENGINE=InnoDB;
