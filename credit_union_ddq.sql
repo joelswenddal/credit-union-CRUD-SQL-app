@@ -28,7 +28,7 @@ CREATE TABLE accounts (
     account_ID int (9) NOT NULL AUTO_INCREMENT,
     account_type varchar(40) NOT NULL,
     balance decimal NOT NULL,
-    PRIMARY KEY (account_ID)
+    PRIMARY KEY (account_ID),
     UNIQUE (account_ID)
     )
     ENGINE=InnoDB; 
@@ -40,7 +40,7 @@ CREATE TABLE account_types (
     account_type varchar(40) NOT NULL,
     offer_ID int (9),
     interest_rate decimal NOT NULL,
-    PRIMARY KEY (account_type)
+    PRIMARY KEY (account_type),
     UNIQUE (account_type)
     )
     ENGINE=InnoDB;
@@ -57,7 +57,7 @@ CREATE TABLE special_offers (
     chequebook varchar(10),
     no_fee_transactions varchar(10),
     sign_up_bonus int(4),
-    PRIMARY KEY (offer_ID)
+    PRIMARY KEY (offer_ID),
     UNIQUE(offer_ID)
     )
     ENGINE=InnoDB;
@@ -70,7 +70,7 @@ CREATE TABLE transactions (
     date_time timestamp NOT NULL,
     amount decimal NOT NULL,
     transaction_type varchar (20) NOT NULL,
-    PRIMARY KEY (transaction_ID)
+    PRIMARY KEY (transaction_ID),
     UNIQUE(transaction_ID)
     )
     ENGINE=InnoDB;
@@ -117,14 +117,42 @@ ON DELETE CASCADE;
 LOCK TABLES customers WRITE;
 
 INSERT INTO customers
-VALUES (123456789,'555555555', 'Joe', 'H.','Sample', 
-2000-02-02, '213 Smith St.','Smithville','CA', 97657, 
-'4014568976', 'joes@fakemail.com');
-
+VALUES (DEFAULT, '555555555', 'Joe', 'H.','Sample', 
+'2000-02-02', '213 Smith St.','Smithville','CA', 97657, 
+'4014568976', 'joes@fakemail.com'),
+(DEFAULT, '234876666', 'Sandy', 'H.','Generic', 
+'2002-08-02', '217 East St.','New Haven','NJ', 02345, 
+'4014568709', 'sandyg@fakemail.com');
 UNLOCK TABLES;
 
 
+LOCK TABLES special_offers WRITE;
+INSERT INTO special_offers
+VALUES (DEFAULT, 'yes', 'yes', 0), (DEFAULT, 'no', 'yes', 0), (DEFAULT, 'no', 'no', 0);
+UNLOCK TABLES;
+
+LOCK TABLES account_types WRITE;
+INSERT INTO account_types
+VALUES ('checking', 2, 0.00), ('savings', 2, 0.00), ('credit card', 3, 0.00);
+UNLOCK TABLES;
+
+LOCK TABLES accounts WRITE;
+INSERT INTO accounts
+VALUES (DEFAULT, 'checking', 0.00), (DEFAULT, 'savings', 0.00);
+UNLOCK TABLES;
+
+LOCK TABLES transactions WRITE;
+INSERT INTO transactions
+VALUES (DEFAULT, 1, DEFAULT, 3000.00, 'deposit'),
+(DEFAULT, 2, DEFAULT, 4500.00, 'deposit');
+UNLOCK TABLES;
 
 
-
-
+LOCK TABLES accounts_customers WRITE;
+/* This references the first two accounts that were
+auto-generated (1 and 2) in the first field, and the
+first two customers who were auto-generated in the
+second field*/
+INSERT INTO accounts_customers
+VALUES (2, 1), (1, 2);
+UNLOCK TABLES;
