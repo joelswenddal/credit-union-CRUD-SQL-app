@@ -16,7 +16,10 @@ CREATE TABLE customers (
     zip int(5),
     phone_number varchar(10),
     email varchar (40),
-    PRIMARY KEY (customer_ID)) 
+    PRIMARY KEY (customer_ID),
+    UNIQUE (customer_ID)
+    ) 
+    
     ENGINE=InnoDB;
 
 DROP TABLE IF EXISTS accounts;
@@ -25,7 +28,9 @@ CREATE TABLE accounts (
     account_ID int (9) NOT NULL AUTO_INCREMENT,
     account_type varchar(40) NOT NULL,
     balance decimal NOT NULL,
-    PRIMARY KEY (account_ID))
+    PRIMARY KEY (account_ID)
+    UNIQUE (account_ID)
+    )
     ENGINE=InnoDB; 
 
 
@@ -35,7 +40,9 @@ CREATE TABLE account_types (
     account_type varchar(40) NOT NULL,
     offer_ID int (9),
     interest_rate decimal NOT NULL,
-    PRIMARY KEY (account_type))
+    PRIMARY KEY (account_type)
+    UNIQUE (account_type)
+    )
     ENGINE=InnoDB;
     /*Note that I changed offer_ID to allow NULL so that
     it would become NULL on delete of the parent table 
@@ -49,19 +56,23 @@ CREATE TABLE special_offers (
     offer_ID int (9) NOT NULL AUTO_INCREMENT,
     chequebook varchar(10),
     no_fee_transactions varchar(10),
-    sign_up_bonus int,
-    PRIMARY KEY (offer_ID))
+    sign_up_bonus int(4),
+    PRIMARY KEY (offer_ID)
+    UNIQUE(offer_ID)
+    )
     ENGINE=InnoDB;
  
 DROP TABLE IF EXISTS transactions;
 
 CREATE TABLE transactions (
     transaction_ID int (9) NOT NULL AUTO_INCREMENT,
-    account_ID int (11) NOT NULL,
+    account_ID int (9) NOT NULL,
     date_time timestamp NOT NULL,
     amount decimal NOT NULL,
     transaction_type varchar (20) NOT NULL,
-    PRIMARY KEY (transaction_ID))
+    PRIMARY KEY (transaction_ID)
+    UNIQUE(transaction_ID)
+    )
     ENGINE=InnoDB;
 
 DROP TABLE IF EXISTS accounts_customers;
