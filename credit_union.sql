@@ -101,7 +101,16 @@ FOREIGN KEY (account_ID)
 REFERENCES accounts(account_ID)
 ON DELETE CASCADE;
 
+/* Dumping data for table `customers` */
 
+LOCK TABLES customers WRITE;
+
+INSERT INTO customers
+VALUES (123456789,'555555555', 'Joe', 'H.','Sample', 
+2000-02-02, '213 Smith St.','Smithville','CA', 97657, 
+'4014568976', 'joes@fakemail.com');
+
+UNLOCK TABLES;
 
 
 
