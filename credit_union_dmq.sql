@@ -51,7 +51,3 @@ SELECT account_ID, customer_ID FROM accounts_customers
 INSERT INTO special_offers(offer_ID, chequebook, no_fee_transactions, sign_up_bonus) VALUES (:auto_incremented, :chequebook_input, :no_fee_transactions_input, :sign_up_bonus_input)
 -- delete a customer from an account removing m:m relationship
 DELETE FROM accounts_customers WHERE account_ID = :account_ID_from_accounts AND customer_ID = :customer_ID_from_customers
-
-
-
-
