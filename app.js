@@ -27,6 +27,7 @@ app.set('mysql', mysql);
 app.use('/customers', require('./customers.js'));
 app.use('/accounts', require('./accounts.js'));
 app.use('/account_types', require('./account_types'));
+app.use('/special_offers', require('./special_offers'));
 //use public directory for serving static assets
 //app.use(express.static('public', { extensions: ['html'] }));
 app.use('/', express.static('public'));
