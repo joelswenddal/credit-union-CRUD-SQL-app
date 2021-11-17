@@ -13,7 +13,11 @@ const handlebars = require('express-handlebars').create({
     defaultLayout: 'main',
 })
 
+<<<<<<< HEAD
+const PORT = 34529;
+=======
 const PORT = 52315;
+>>>>>>> 0a2be2f820f034ddce5a50b29e8e57ae6be6ba0a
 app.engine('handlebars', handlebars.engine);
 //app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
@@ -28,7 +32,11 @@ app.use('/customers', require('./customers.js'));
 app.use('/accounts', require('./accounts.js'));
 app.use('/account_types', require('./account_types'));
 app.use('/special_offers', require('./special_offers'));
+<<<<<<< HEAD
+app.use('/accounts_customers', require('./accounts_customers.js'));
+=======
 app.use('/transactions', require('./transactions'));
+>>>>>>> 0a2be2f820f034ddce5a50b29e8e57ae6be6ba0a
 //use public directory for serving static assets
 //app.use(express.static('public', { extensions: ['html'] }));
 app.use('/', express.static('public'));
