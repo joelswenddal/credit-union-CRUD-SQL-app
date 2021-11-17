@@ -28,22 +28,22 @@
         </div>
         <div class="row">
             <div class="col">
-                <form action="http://localhost:3000/account_types" method="POST">
+                <form id = "addaccounttype" action = "/account_types" method="POST">
                     <fieldset>
                         <legend>Add Account Type</legend>
                         <div class="mb-3">
                             <label>Type Name
-                                <input type="text" name="TypeName" size="20" maxlength="30" required="required">
+                                <input type="text" name="accountType" size="20" maxlength="30" required="required">
                             </label>
                         </div>
                         <div class="mb-3">
                             <label>Associated Interest Rate
-                                <input type="Text" name="InterestRate" size="20" maxlength="30" required="required">
+                                <input type="Text" name="interestRate" size="20" maxlength="30" required="required">
                             </label>
                         </div>
                         <div class="mb-3">
                             <label>Special Offer
-                                <input type="Text" name="SpecialOffer" size="20" maxlength="30">
+                                <input type="Text" name="offerID" size="20" maxlength="30">
                             </label>
                         </div>
                         <button type="submit" class="btn btn-secondary" value="CreateAccountType">ADD</button>
@@ -51,7 +51,7 @@
                 </form>
             </div>
             <div class="col">
-                <form action="http://localhost:3000/account_types" method="POST">
+                <form id = "editaccounttype"action="/account_types" method="POST">
                     <fieldset>
                         <legend>Edit Account Type</legend>
                         <div class="mb-3">

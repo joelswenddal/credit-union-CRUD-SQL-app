@@ -33,15 +33,15 @@ module.exports = function () {
     router.post('/', function (req, res) {
         console.log(req.body)
         let mysql = req.app.get('mysql');
-        let sql = "INSERT INTO accounts (account_type, balance) VALUES(?, ?)";
-        let inserts = [req.body.accountType, req.body.balance];
+        let sql = "INSERT INTO account_types (account_type, offer_ID, interest_rate) VALUES (?, ?, ?)";
+        let inserts = [req.body.accountType, req.body.offerID, req.body.interestRate];
         sql = mysql.pool.query(sql, inserts, function (error, results, fields) {
             if (error) {
                 console.log(JSON.stringify(error))
                 res.write(JSON.stringify(error));
                 res.end();
             } else {
-                res.redirect('/accounts');
+                res.redirect('/account_types');
             }
         });
     });
