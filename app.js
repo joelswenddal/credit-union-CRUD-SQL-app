@@ -13,7 +13,7 @@ const handlebars = require('express-handlebars').create({
     defaultLayout: 'main',
 })
 
-const PORT = 34518;
+const PORT = 52314;
 app.engine('handlebars', handlebars.engine);
 //app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
@@ -26,6 +26,8 @@ app.set('mysql', mysql);
 
 app.use('/customers', require('./customers.js'));
 app.use('/accounts', require('./accounts.js'));
+app.use('/account_types', require('./account_types'));
+app.use('/special_offers', require('./special_offers'));
 //use public directory for serving static assets
 //app.use(express.static('public', { extensions: ['html'] }));
 app.use('/', express.static('public'));
