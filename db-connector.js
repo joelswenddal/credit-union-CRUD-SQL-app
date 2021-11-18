@@ -7,9 +7,9 @@ var pool = mysql.createPool({
     host: 'classmysql.engr.oregonstate.edu',
 
     /* Template for GH push*/
-    user: 'cs340_[onid]',
-    password: '[pass]',
-    database: 'cs340_[onid]'
+    user: 'cs340_swenddaj',
+    password: '1761',
+    database: 'cs340_swenddaj'
 
     /*
     user: 'cs340_voandre',
