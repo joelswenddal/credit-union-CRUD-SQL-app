@@ -47,7 +47,13 @@ module.exports = function () {
         console.log(req.body)
         let mysql = req.app.get('mysql');
         let sql = "INSERT INTO account_types (account_type, offer_ID, interest_rate) VALUES (?, ?, ?)";
-        let inserts = [req.body.accountType, req.body.offerID, req.body.interestRate];
+        
+        if (req.body.offerID === "NULL"){
+            nullable = null;
+        } else{
+            nullable = req.body.offerID;
+        }
+        let inserts = [req.body.accountType, nullable, req.body.interestRate];
         sql = mysql.pool.query(sql, inserts, function (error, results, fields) {
             if (error) {
                 console.log(JSON.stringify(error))
