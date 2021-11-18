@@ -30,6 +30,7 @@
                 <fieldset>
                     <legend>Add a Customer to an existing Account</legend>
                     
+                    <!-- post project input verification
                     <div class="mb-3">
                         <label>Account ID
                             <input type="number" name="accountID" maxlength="9" required="required" class = "form-control" placeholder="Input valid Account ID">
@@ -41,6 +42,30 @@
                             <input type="number" name="customerID" maxlength="9" required="required" class = "form-control"placeholder="Input valid Customer ID">
                         </label>
                     </div>
+                    -->
+                    
+                    <div class = "mb-3">
+                        <label>Account ID
+                            <select name = "accountID" id = "accountID" class="form-select" aria-label="Default select example">
+                                {{#each accounts}}
+                                <option value= "{{account_ID}}"> {{account_ID}}</option>
+                                {{/each}}
+                            </select>
+                        </label>
+                    </div> 
+
+                    <div class = "mb-3">
+                        <label>Customer ID
+                            <select name = "customerID" id = "customerID" class="form-select" aria-label="Default select example">
+                                {{#each customers}}
+                                <option value= "{{customer_ID}}"> {{customer_ID}}</option>
+                                {{/each}}
+                            </select>
+                        </label>
+                    </div> 
+
+
+                    
                     <button type="submit" class="btn btn-secondary" value="CreateAccount_Customer">CREATE</button>
                 </fieldset>
             </form>

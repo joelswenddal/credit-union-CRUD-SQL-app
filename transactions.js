@@ -15,15 +15,31 @@ module.exports = function () {
         });
     }
 
+
+    /*dropdown*/
+    function getID(res, mysql, context, complete) {
+        mysql.pool.query("SELECT account_ID FROM accounts", function (error, results, fields) {
+            if (error) {
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            //populates the context
+            context.accounts = results;
+            complete();
+        });
+    }
+
+
     /*Display all offers*/
     router.get('/', function (req, res) {
         let callbackCount = 0;
         let context = {};
         let mysql = req.app.get('mysql');
         getTransactions(res, mysql, context, complete);
+        getID(res, mysql, context, complete);
         function complete() {
             callbackCount++;
-            if (callbackCount >= 1) {
+            if (callbackCount >= 2) {
                 res.render('transactions', context);
             }
         }
