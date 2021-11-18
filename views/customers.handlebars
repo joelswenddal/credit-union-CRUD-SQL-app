@@ -47,9 +47,11 @@
                         <td>{{zip}}</td>
                         <td>{{phone_number}}</td>
                         <td>{{email}}</td>
-                        <td><a href="/customers/{{customer_ID}}"class="btn btn-secondary" role="button" aria-pressed="true">Update</a>
-                        <td><button onclick="deletePerson({{customer_ID}})" class="btn btn-secondary">Delete</button></td>
-                        
+                        <td><a href="/customers/{{customer_ID}}" class="btn btn-secondary" role="button"
+                                aria-pressed="true">Update</a>
+                        <td><button onclick="deleteCustomer({{customer_ID}})" class="btn btn-secondary">Delete</button>
+                        </td>
+
                     </tr>
                     {{/each}}
                 </tbody>
@@ -60,63 +62,64 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <form id="addcustomer" action="/customers" method="POST" >
+            <form id="addcustomer" action="/customers" method="POST">
                 <fieldset>
                     <legend>Add a Customer</legend>
                     <div class="mb-3">
                         <label>First Name
-                            <input type="text" name="firstName" maxlength="30" required="required" class = "form-control">
+                            <input type="text" name="firstName" maxlength="30" required="required" class="form-control">
                         </label>
                     </div>
                     <div class="mb-3">
                         <label>Middle Name
-                            <input type="text" name="middleName" maxlength="30" class = "form-control">
+                            <input type="text" name="middleName" maxlength="30" class="form-control">
                         </label>
                     </div>
                     <div class="mb-3">
                         <label>Last Name
-                            <input type="text" name="lastName"  maxlength="30" required="required" class = "form-control">
+                            <input type="text" name="lastName" maxlength="30" required="required" class="form-control">
                         </label>
                     </div>
                     <div class="mb-3">
                         <label>SSN (No Hyphens)
-                            <input type="text" name="ssn" minlength="9" maxlength="9" class = "form-control">
+                            <input type="text" name="ssn" minlength="9" maxlength="9" class="form-control">
                         </label>
                     </div>
                     <div class="mb-3">
                         <label>DOB
-                            <input type="date" name="dob" maxlength="11" required="required" class = "form-control">
+                            <input type="date" name="dob" maxlength="11" required="required" class="form-control">
                         </label>
                     </div>
                     <div class="mb-3">
                         <label>Street Address
-                            <input type="text" name="street"  maxlength="80" required="required" class = "form-control">
+                            <input type="text" name="street" maxlength="80" required="required" class="form-control">
                         </label>
                     </div>
                     <div class="mb-3">
                         <label>City
-                            <input type="text" name="city"  maxlength="30" required="required" class = "form-control">
+                            <input type="text" name="city" maxlength="30" required="required" class="form-control">
                         </label>
                     </div>
                     <div class="mb-3">
                         <label>State
-                            <input type="text" name="state"  maxlength="2" required="required" class = "form-control text-uppercase">
+                            <input type="text" name="state" maxlength="2" required="required"
+                                class="form-control text-uppercase">
                         </label>
                     </div>
                     <div class="mb-3">
                         <label>Zip
-                            <input type="number" name="zip"  maxlength="5" class = "form-control" min ="00001">
+                            <input type="number" name="zip" maxlength="5" class="form-control" min="00001">
                         </label>
                     </div>
                     <div class="mb-3">
                         <label>Phone
-                            <input type="text" name="phone" maxlength="10" required="required" class = "form-control ">
+                            <input type="text" name="phone" maxlength="10" required="required" class="form-control ">
                         </label>
                     </div>
                     <div class="mb-3">
                         <label>Email
-                            <input type="email" name="email"  maxlength="40" required="required"
-                                placeholder="joesmith@example.com" class = "form-control">
+                            <input type="email" name="email" maxlength="40" required="required"
+                                placeholder="joesmith@example.com" class="form-control">
                         </label>
                     </div>
                     <button type="submit" class="btn btn-secondary" value="CreateCustomer">ADD</button>
@@ -130,27 +133,32 @@
                     <legend>Search for Customer</legend>
                     <div class="mb-3">
                         <label>First Name
-                            <input type="text" name="firstName" size="20" maxlength="30" required="required" class = "form-control">
+                            <input type="text" name="firstName" size="20" maxlength="30" required="required"
+                                class="form-control">
                         </label>
                     </div>
                     <div class="mb-3">
                         <label>Middle Name
-                            <input type="text" name="middleName" size="20" maxlength="30" required="required" class = "form-control">
+                            <input type="text" name="middleName" size="20" maxlength="30" required="required"
+                                class="form-control">
                         </label>
                     </div>
                     <div class="mb-3">
                         <label>Last Name
-                            <input type="text" name="lastName" size="20" maxlength="30" required="required" class = "form-control">
+                            <input type="text" name="lastName" size="20" maxlength="30" required="required"
+                                class="form-control">
                         </label>
                     </div>
                     <div class="mb-3">
                         <label>SSN
-                            <input type="text" name="ssn" size="15" maxlength="11" required="required" class = "form-control">
+                            <input type="text" name="ssn" size="15" maxlength="11" required="required"
+                                class="form-control">
                         </label>
                     </div>
                     <div class="mb-3">
                         <label>DOB
-                            <input type="date" name="dob" size="30" maxlength="40" required="required" class = "form-control">
+                            <input type="date" name="dob" size="30" maxlength="40" required="required"
+                                class="form-control">
                         </label>
                     </div>
                     <button type="submit" class="btn btn-secondary" value="SearchCustomer">SEARCH</button>
@@ -160,4 +168,5 @@
     </div>
 </div>
 </div>
+
 </html>

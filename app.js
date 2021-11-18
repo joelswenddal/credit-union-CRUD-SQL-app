@@ -25,6 +25,8 @@ app.use(express.urlencoded({
 app.set('view engine', 'handlebars');
 app.set('mysql', mysql);
 
+app.use('/static', express.static('public'));
+
 app.use('/customers', require('./customers.js'));
 app.use('/accounts', require('./accounts.js'));
 app.use('/account_types', require('./account_types.js'));
@@ -49,6 +51,6 @@ app.use(function (err, req, res, next) {
 });
 
 
-app.listen(PORT, function () {            
+app.listen(PORT, function () {
     console.log('Express started on http://localhost:' + PORT + '; press Ctrl-C to terminate.')
 });
