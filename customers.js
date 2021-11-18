@@ -15,7 +15,7 @@ module.exports = function () {
                 complete();
             });
     }
-
+    /*dropdown*/
     function getStates(res, mysql, context, complete) {
         mysql.pool.query("SELECT state FROM customers GROUP BY state",
             function (error, results, fields) {
@@ -30,8 +30,11 @@ module.exports = function () {
             });
     }
 
+
     /*Display all customers*/
     router.get('/', function (req, res) {
+      
+
         let callbackCount = 0;
         let context = {};
         context.jsscripts = ["deletecustomer.js"];  //added js script to context to make available for delete
@@ -45,6 +48,7 @@ module.exports = function () {
             }
         }
     });
+
 
     /*Adds a Customer, redirects to Customer page after adding*/
 
@@ -84,7 +88,7 @@ module.exports = function () {
                 res.status(202).end();
             }
         })
-    })
+    });
 
     return router;
 }();
