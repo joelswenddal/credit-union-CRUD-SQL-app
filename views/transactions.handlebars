@@ -38,12 +38,24 @@
                     <form action="/transactions" method="POST">
                         <fieldset>
                             <legend>Add a Transaction</legend>
-                            <div class="mb-3">
+                            
+                            <!-- post project input verification
+                                <div class="mb-3">
                                 <label>Account ID
                                     <input type="text" name="accountID" size="20" maxlength="30" required="required" class = "form-select" placeholder = "Insert valid account ID">
                                 </label>
                             </div>
-                            
+                            -->
+                            <div class = "mb-3">
+                                <label>Account ID
+                                    <select name = "accountID" id = "accountID" class="form-select" aria-label="Default select example">
+                                        {{#each accounts}}
+                                        <option value= "{{account_ID}}"> {{account_ID}}</option>
+                                        {{/each}}
+                                    </select>
+                                </label>
+                            </div> 
+
                             <div class="mb-3">
                                 <label>Amount
                                     <div class="input-group">
