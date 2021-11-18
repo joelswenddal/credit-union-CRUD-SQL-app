@@ -18,6 +18,7 @@
                     <tr>
                         <td scope="row">{{account_ID}}</td>
                         <td scope="row">{{customer_ID}}</td>
+                        <td><button onclick="deleteCustomer({{customer_ID}})" class="btn btn-secondary">Delete</button></td>
                     </tr>
                     {{/each}}
                 </tbody>
@@ -43,7 +44,7 @@
                         </label>
                     </div>
                     -->
-                    
+
                     <div class = "mb-3">
                         <label>Account ID
                             <select name = "accountID" id = "accountID" class="form-select" aria-label="Default select example">
