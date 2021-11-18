@@ -3,7 +3,7 @@ module.exports = function () {
     var router = express.Router();
 
     function getOffers(res, mysql, context, complete) {
-        mysql.pool.query("SELECT * FROM special_offers", function (error, results, fields) {
+        mysql.pool.query("SELECT offer_ID,chequebook,no_fee_transactions,sign_up_bonus FROM special_offers", function (error, results, fields) {
 
             if (error) {
                 res.write(JSON.stringify(error));

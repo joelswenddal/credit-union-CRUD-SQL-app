@@ -21,7 +21,7 @@
                     <tbody>
                         {{#each transactions}}
                         <tr>
-                            <th>{{transaction_ID}}</th>
+                            <td>{{transaction_ID}}</td>
                             <td>{{account_ID}}</td>
                             <td>{{date_time}}</td>
                             <td>${{amount}}</td>
@@ -40,20 +40,28 @@
                             <legend>Add a Transaction</legend>
                             <div class="mb-3">
                                 <label>Account ID
-                                    <input type="text" name="accountID" size="20" maxlength="30" required="required">
+                                    <input type="text" name="accountID" size="20" maxlength="30" required="required" class = "form-select" placeholder = "Insert valid account ID">
                                 </label>
                             </div>
+                            
                             <div class="mb-3">
                                 <label>Amount
-                                    <input type="text" name="amount" size="20" maxlength="30" required="required">
+                                    <div class="input-group">
+                                        <span class="input-group-text">$</span>
+                                            <input type="number" name="amount" step ="0.01" class="form-control" placeholder="0.00" required>
+                                    </div>
                                 </label>
                             </div>
-                            <div class="mb-3">
+
+                            <div class = "mb-3">
                                 <label>Transaction Type
-                                    <input type="text" name="transactionType" size="20" maxlength="30"
-                                        required="required">
+                                    <select name = "transactionType" id = "transactionType" class="form-select" aria-label="Default select example">
+                                        <option value="Deposit" selected>Deposit</option>
+                                        <option value="Withdrawal">Withdrawal</option>
+                                    </select>
                                 </label>
-                            </div>
+                            </div> 
+
                             <button type="submit" class="btn btn-secondary" value="createTransaction">ADD</button>
                         </fieldset>
                     </form>
