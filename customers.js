@@ -4,16 +4,16 @@ module.exports = function () {
 
     function getCustomers(res, mysql, context, complete) {
         mysql.pool.query("SELECT customer_ID,ssn, first_name,middle_name,last_name,dob, street_address, city, state, zip, phone_number, email FROM customers ",
-        function (error, results, fields) {
+            function (error, results, fields) {
 
-            if (error) {
-                res.write(JSON.stringify(error));
-                res.end();
-            }
-            //populates the context
-            context.customers = results;
-            complete();
-        });
+                if (error) {
+                    res.write(JSON.stringify(error));
+                    res.end();
+                }
+                //populates the context
+                context.customers = results;
+                complete();
+            });
     }
 
 
@@ -21,6 +21,7 @@ module.exports = function () {
     router.get('/', function (req, res) {
         let callbackCount = 0;
         let context = {};
+        context.jsscripts = ["deletecustomer.js"];  //added js script to context to make available for delete
         let mysql = req.app.get('mysql');
         getCustomers(res, mysql, context, complete);
         function complete() {
@@ -52,6 +53,24 @@ module.exports = function () {
             }
         });
     });
+
+    /* Route to delete a person, simply returns a 202 upon success. Ajax will handle this. */
+
+    router.delete('/:customer_id', function (req, res) {
+        var mysql = req.app.get('mysql');
+        var sql = "DELETE FROM customers WHERE customer_ID = ?";
+        var inserts = [req.params.customer_id];
+        sql = mysql.pool.query(sql, inserts, function (error, results, fields) {
+            if (error) {
+                console.log(error)
+                res.write(JSON.stringify(error));
+                res.status(400);
+                res.end();
+            } else {
+                res.status(202).end();
+            }
+        })
+    })
 
     return router;
 }();

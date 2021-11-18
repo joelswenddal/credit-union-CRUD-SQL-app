@@ -25,6 +25,8 @@ app.use(express.urlencoded({
 app.set('view engine', 'handlebars');
 app.set('mysql', mysql);
 
+app.use('/static', express.static('public'));
+
 app.use('/customers', require('./customers.js'));
 app.use('/accounts', require('./accounts.js'));
 app.use('/account_types', require('./account_types.js'));
