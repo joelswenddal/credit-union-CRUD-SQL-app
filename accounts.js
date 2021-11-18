@@ -15,15 +15,30 @@ module.exports = function () {
         });
     }
 
+    /*dropdown function*/
+    function getTypes(res, mysql, context, complete) {
+        mysql.pool.query("SELECT account_type FROM account_types", function (error, results, fields) {
+            if (error) {
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            //populates the context
+            context.types = results;
+            complete();
+        });
+    }
+
     /*Display all accounts*/
     router.get('/', function (req, res) {
+        
         let callbackCount = 0;
         let context = {};
         let mysql = req.app.get('mysql');
         getAccounts(res, mysql, context, complete);
+        getTypes(res, mysql, context, complete)  /*to dynamically generate dropdown for account types*/
         function complete() {
             callbackCount++;
-            if (callbackCount >= 1) {
+            if (callbackCount >= 2) {
                 res.render('accounts', context);
             }
         }
@@ -33,7 +48,6 @@ module.exports = function () {
     router.post('/', function (req, res) {
         console.log(req.body)
         
-
         let mysql = req.app.get('mysql');
         let sql = "INSERT INTO accounts (account_type, balance) VALUES(?, ?)";
         let inserts = [req.body.accountType, req.body.balance];

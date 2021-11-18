@@ -1,4 +1,6 @@
 <html>
+
+
 <div class="container">
     <div class="row">
         <h1>Manage Accounts</h1>
@@ -32,10 +34,10 @@
                 <legend>Add Account</legend>
                 <div class = "mb-3">
                     <label>Account Type
-                        <select name = "accountType" id = "accountType" class="form-select" aria-label="Default select example">
-                            <option value="Checking" selected>Checking</option>
-                            <option value="Savings">Savings</option>
-                            <option value="Credit Card">Credit Card</option>
+                        <select name = "accountType" id = "types" class="form-select" aria-label="Default select example">
+                            {{#each types}}
+                            <option value= "{{account_type}}"> {{account_type}}</option>
+                            {{/each}}
                         </select>
                     </label>
                 </div> 
