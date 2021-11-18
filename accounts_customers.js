@@ -34,7 +34,7 @@ module.exports = function () {
         console.log(req.body)
         let mysql = req.app.get('mysql');
         let sql = "INSERT INTO accounts_customers (account_ID, customer_ID) VALUES(?, ?)";
-        let inserts = [req.body.customerId, req.body.accountId];
+        let inserts = [req.body.accountID, req.body.customerID];
         sql = mysql.pool.query(sql, inserts, function (error, results, fields) {
             if (error) {
                 console.log(JSON.stringify(error))
