@@ -16,6 +16,19 @@ module.exports = function () {
             });
     }
 
+    function getStates(res, mysql, context, complete) {
+        mysql.pool.query("SELECT state FROM customers GROUP BY state",
+            function (error, results, fields) {
+
+                if (error) {
+                    res.write(JSON.stringify(error));
+                    res.end();
+                }
+                //populates the context
+                context.states = results;
+                complete();
+            });
+    }
 
     /*Display all customers*/
     router.get('/', function (req, res) {
@@ -24,9 +37,10 @@ module.exports = function () {
         context.jsscripts = ["deletecustomer.js"];  //added js script to context to make available for delete
         let mysql = req.app.get('mysql');
         getCustomers(res, mysql, context, complete);
+        getStates(res, mysql, context, complete);
         function complete() {
             callbackCount++;
-            if (callbackCount >= 1) {
+            if (callbackCount >= 2) {
                 res.render('customers', context);
             }
         }
