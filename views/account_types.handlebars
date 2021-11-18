@@ -33,46 +33,50 @@
                         <legend>Add Account Type</legend>
                         <div class="mb-3">
                             <label>Type Name
-                                <input type="text" name="accountType" size="20" maxlength="30" required="required">
+                                <input type="text" name="accountType" size="20" maxlength="30" required="required" class = "form-control">
                             </label>
                         </div>
                         <div class="mb-3">
                             <label>Associated Interest Rate
-                                <input type="Text" name="interestRate" size="20" maxlength="30" required="required">
+                                <div class = "input-group">
+                                    <input type="number" name="interestRate" step = "0.01" size="20" maxlength="30" required="required" class = "form-control">
+                                        <span class="input-group-text">%</span>
+                                </div>   
                             </label>
                         </div>
                         <div class="mb-3">
                             <label>Special Offer
-                                <input type="Text" name="offerID" size="20" maxlength="30">
+                                <input type="Text" name="offerID" size="20" maxlength="30" class = "form-control">
                             </label>
                         </div>
                         <button type="submit" class="btn btn-secondary" value="CreateAccountType">ADD</button>
                     </fieldset>
                 </form>
             </div>
-            <div class="col">
+            <!--<div class="col">
                 <form id = "editaccounttype"action="/account_types" method="POST">
                     <fieldset>
                         <legend>Edit Account Type</legend>
                         <div class="mb-3">
                             <label>Type Name
-                                <input type="text" name="TypeName" size="20" maxlength="30" required="required">
+                                <input type="text" name="TypeName" size="20" maxlength="30" required="required" class = "form-control">
                             </label>
                         </div>
                         <div class="mb-3">
                             <label>Associated Interest Rate
-                                <input type="Text" name="InterestRate" size="20" maxlength="30" required="required">
+                                <input type="Text" name="InterestRate" size="20" maxlength="30" required="required" class = "form-control">
                             </label>
                         </div>
                         <div class="mb-3">
                             <label>Special Offer
-                                <input type="Text" name="SpecialOffer" size="20" maxlength="30">
+                                <input type="Text" name="SpecialOffer" size="20" maxlength="30" class = "form-control">
                             </label>
                         </div>
                         <button type="submit" class="btn btn-secondary" value="EditAccountType">EDIT</button>
                     </fieldset>
                 </form>
             </div>
+            -->
         </div>
     </div>
 </html>

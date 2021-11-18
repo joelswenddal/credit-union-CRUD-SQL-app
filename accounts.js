@@ -32,6 +32,8 @@ module.exports = function () {
     /*Adds an Account, redirects to Accounts page after adding*/
     router.post('/', function (req, res) {
         console.log(req.body)
+        
+
         let mysql = req.app.get('mysql');
         let sql = "INSERT INTO accounts (account_type, balance) VALUES(?, ?)";
         let inserts = [req.body.accountType, req.body.balance];
