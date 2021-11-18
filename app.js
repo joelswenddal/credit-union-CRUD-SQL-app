@@ -30,6 +30,7 @@ app.use('/account_types', require('./account_types'));
 app.use('/special_offers', require('./special_offers'));
 app.use('/accounts_customers', require('./accounts_customers.js'));
 app.use('/transactions', require('./transactions'));
+
 //use public directory for serving static assets
 //app.use(express.static('public', { extensions: ['html'] }));
 app.use('/', express.static('public'));
