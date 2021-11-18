@@ -3,7 +3,7 @@ module.exports = function () {
     var router = express.Router();
 
     function getTransactions(res, mysql, context, complete) {
-        mysql.pool.query("SELECT * FROM transactions", function (error, results, fields) {
+        mysql.pool.query("SELECT transaction_ID,account_ID,date_time,amount,transaction_type FROM transactions", function (error, results, fields) {
 
             if (error) {
                 res.write(JSON.stringify(error));

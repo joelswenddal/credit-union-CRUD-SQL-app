@@ -3,7 +3,8 @@ module.exports = function () {
     var router = express.Router();
 
     function getCustomers(res, mysql, context, complete) {
-        mysql.pool.query("SELECT * FROM customers ", function (error, results, fields) {
+        mysql.pool.query("SELECT customer_ID,ssn, first_name,middle_name,last_name,dob, street_address, city, state, zip, phone_number, email FROM customers ",
+        function (error, results, fields) {
 
             if (error) {
                 res.write(JSON.stringify(error));

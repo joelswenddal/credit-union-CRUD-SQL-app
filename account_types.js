@@ -3,8 +3,7 @@ module.exports = function () {
     var router = express.Router();
 
     function getAccountTypes(res, mysql, context, complete) {
-        mysql.pool.query("SELECT * FROM account_types ", function (error, results, fields) {
-
+        mysql.pool.query("SELECT account_type, offer_ID, interest_rate FROM account_types ", function (error, results, fields) {
             if (error) {
                 res.write(JSON.stringify(error));
                 res.end();
