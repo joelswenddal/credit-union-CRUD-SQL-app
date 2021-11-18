@@ -34,6 +34,7 @@ app.use('/transactions', require('./transactions.js'));
 
 //use public directory for serving static assets
 //app.use(express.static('public', { extensions: ['html'] }));
+
 app.use('/', express.static('public'));
 
 app.use(function (req, res) {
@@ -47,47 +48,7 @@ app.use(function (err, req, res, next) {
     res.render('500');
 });
 
-/*
-    ROUTES
-*/
 
-
-//routes to public/index.html
-app.get("/", (req, res) => {
-    res.send("Hello World!");
-});
-
-/*
-app.post("/customers", function (req, res) {
-    console.log(req.body);
-    res.send("<p>Your request was received by the server.</p>"
-        + "<p>" + `${JSON.stringify(req.body)}` + "</p>");
-})
-
-
-app.post("/account_types", function (req, res) {
-    console.log(req.body);
-
-    res.send("<p>Your request was received by the server.</p>"
-        + "<p>" + `${JSON.stringify(req.body)}` + "</p>");
-})
-
-app.post("/accounts", function (req, res) {
-    console.log(req.body);
-    res.send("<p>Your request was received by the server.</p>"
-        + "<p>" + `${JSON.stringify(req.body)}` + "</p>");
-})
-
-app.post("/transactions", function (req, res) {
-    console.log(req.body);
-    res.send("<p>Your request was received by the server.</p>"
-        + "<p>" + `${JSON.stringify(req.body)}` + "</p>");
-})
-*/
-
-/*
-    LISTENER
-*/
-app.listen(PORT, function () {            //'listener' which receives incoming requests on the specified PORT.
+app.listen(PORT, function () {            
     console.log('Express started on http://localhost:' + PORT + '; press Ctrl-C to terminate.')
 });

@@ -116,7 +116,11 @@ ON DELETE CASCADE;
 LOCK TABLES customers WRITE;
 
 INSERT INTO customers
-VALUES (DEFAULT, '555555555', 'Joe', 'H.','Sample', 
+VALUES 
+(DEFAULT, '111112222', 'Andrew', 'H.','Generic', 
+'2002-08-05', '217 East St.','New Haven','NJ', 02345, 
+'4168757777', 'andrew@fakemail.com'),
+(DEFAULT, '555555555', 'Joe', 'H.','Sample', 
 '2000-02-02', '213 Smith St.','Smithville','CA', 97657, 
 '4014568976', 'joes@fakemail.com'),
 (DEFAULT, '234876666', 'Sandy', 'H.','Generic', 
@@ -127,23 +131,34 @@ UNLOCK TABLES;
 
 LOCK TABLES special_offers WRITE;
 INSERT INTO special_offers
-VALUES (DEFAULT, 'yes', 'yes', 0), (DEFAULT, 'no', 'yes', 0), (DEFAULT, 'no', 'no', 0);
+VALUES 
+(DEFAULT, 'Yes', 'Yes', 0), 
+(DEFAULT, 'No', 'Yes', 0), 
+(DEFAULT, 'No', 'No', 0);
 UNLOCK TABLES;
 
 LOCK TABLES account_types WRITE;
 INSERT INTO account_types
-VALUES ('checking', 2, 0.00), ('savings', 2, 0.00), ('credit card', 3, 0.00);
+VALUES 
+('Checking', 2, 0.00), 
+('Savings', 2, 0.00), 
+('Credit Card', 3, 0.00);
 UNLOCK TABLES;
 
 LOCK TABLES accounts WRITE;
 INSERT INTO accounts
-VALUES (DEFAULT, 'checking', 0.00), (DEFAULT, 'savings', 0.00);
+VALUES 
+(DEFAULT, 'Checking', 0.00), 
+(DEFAULT, 'Savings', 0.00), 
+(DEFAULT, 'Credit Card', 0.00);
 UNLOCK TABLES;
 
 LOCK TABLES transactions WRITE;
 INSERT INTO transactions
-VALUES (DEFAULT, 1, DEFAULT, 3000.00, 'deposit'),
-(DEFAULT, 2, DEFAULT, 4500.00, 'deposit');
+VALUES 
+(DEFAULT, 1, DEFAULT, 3000.00, 'Deposit'),
+(DEFAULT, 2, DEFAULT, 1000.00, 'Withdrawal'),
+(DEFAULT, 2, DEFAULT, 4500.00, 'Deposit');
 UNLOCK TABLES;
 
 
@@ -153,5 +168,8 @@ auto-generated (1 and 2) in the first field, and the
 first two customers who were auto-generated in the
 second field*/
 INSERT INTO accounts_customers
-VALUES (2, 1), (1, 2);
+VALUES
+(1, 1), 
+(2, 1), 
+(1, 2);
 UNLOCK TABLES;

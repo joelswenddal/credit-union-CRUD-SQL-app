@@ -3,7 +3,7 @@ module.exports = function () {
     var router = express.Router();
 
     function getAccountsCustomers(res, mysql, context, complete) {
-        mysql.pool.query("SELECT * FROM accounts_customers ", function (error, results, fields) {
+        mysql.pool.query("SELECT account_ID,customer_ID FROM accounts_customers ", function (error, results, fields) {
 
             if (error) {
                 res.write(JSON.stringify(error));
