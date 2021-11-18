@@ -47,7 +47,8 @@
                         <td>{{zip}}</td>
                         <td>{{phone_number}}</td>
                         <td>{{email}}</td>
-                        
+                        <td><button onclick="deletePerson({{customer_ID}})" class="btn btn-secondary">Delete</button></td>
+                        <td><button onclick="updatePerson({{customer_ID}})" class="btn btn-secondary">Update</button></td>
                     </tr>
                     {{/each}}
                 </tbody>
@@ -118,6 +119,40 @@
                         </label>
                     </div>
                     <button type="submit" class="btn btn-secondary" value="CreateCustomer">ADD</button>
+                </fieldset>
+            </form>
+        </div>
+
+        <div class="col">
+            <form action="/customers" method="POST">
+                <fieldset>
+                    <legend>Search for Customer</legend>
+                    <div class="mb-3">
+                        <label>First Name
+                            <input type="text" name="firstName" size="20" maxlength="30" required="required" class = "form-control">
+                        </label>
+                    </div>
+                    <div class="mb-3">
+                        <label>Middle Name
+                            <input type="text" name="middleName" size="20" maxlength="30" required="required" class = "form-control">
+                        </label>
+                    </div>
+                    <div class="mb-3">
+                        <label>Last Name
+                            <input type="text" name="lastName" size="20" maxlength="30" required="required" class = "form-control">
+                        </label>
+                    </div>
+                    <div class="mb-3">
+                        <label>SSN
+                            <input type="text" name="ssn" size="15" maxlength="11" required="required" class = "form-control">
+                        </label>
+                    </div>
+                    <div class="mb-3">
+                        <label>DOB
+                            <input type="date" name="dob" size="30" maxlength="40" required="required" class = "form-control">
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-secondary" value="SearchCustomer">SEARCH</button>
                 </fieldset>
             </form>
         </div>
