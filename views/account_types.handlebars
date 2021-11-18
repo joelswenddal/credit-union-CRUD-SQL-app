@@ -44,11 +44,17 @@
                                 </div>   
                             </label>
                         </div>
-                        <div class="mb-3">
+
+                        <div class = "mb-3">
                             <label>Special Offer
-                                <input type="Text" name="offerID" size="20" maxlength="30" class = "form-control">
+                                <select name = "offerID" id = "offers" class="form-select" aria-label="Default select example" >
+                                    <option value= "0" selected> -- None -- </option>
+                                    {{#each offers}}
+                                    <option value= "{{offer_ID}}"> {{offer_ID}}</option>
+                                    {{/each}}
+                                </select>
                             </label>
-                        </div>
+                        </div> 
                         <button type="submit" class="btn btn-secondary" value="CreateAccountType">ADD</button>
                     </fieldset>
                 </form>

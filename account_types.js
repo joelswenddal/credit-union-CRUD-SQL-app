@@ -14,15 +14,29 @@ module.exports = function () {
         });
     }
 
+    /*dropdown function*/
+    function getOffers(res, mysql, context, complete) {
+        mysql.pool.query("SELECT offer_ID FROM special_offers", function (error, results, fields) {
+            if (error) {
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            //populates the context
+            context.offers = results;
+            complete();
+        });
+    }
+
     /*Display all account types*/
     router.get('/', function (req, res) {
         let callbackCount = 0;
         let context = {};
         let mysql = req.app.get('mysql');
         getAccountTypes(res, mysql, context, complete);
+        getOffers(res, mysql, context, complete);
         function complete() {
             callbackCount++;
-            if (callbackCount >= 1) {
+            if (callbackCount >= 2) {
                 res.render('account_types', context);
             }
         }

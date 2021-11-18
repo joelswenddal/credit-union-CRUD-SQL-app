@@ -133,8 +133,8 @@ LOCK TABLES special_offers WRITE;
 INSERT INTO special_offers
 VALUES 
 (DEFAULT, 'Yes', 'Yes', 0), 
-(DEFAULT, 'No', 'Yes', 0), 
-(DEFAULT, 'No', 'No', 0);
+(DEFAULT, 'Yes', 'No', 0),
+(DEFAULT, 'No', 'Yes', 250);
 UNLOCK TABLES;
 
 LOCK TABLES account_types WRITE;
