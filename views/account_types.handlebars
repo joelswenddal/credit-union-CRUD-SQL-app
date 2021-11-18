@@ -20,6 +20,8 @@
                             <td>{{account_type}}</td>
                             <td>{{interest_rate}}%</td>
                             <td>{{offer_ID}}</td>
+                            <td><a href="/customers/{{account_type}}" class="btn btn-secondary" role="button"
+                                aria-pressed="true">Update</a>
                         </tr>
                         {{/each}}
                     </tbody>
@@ -44,11 +46,17 @@
                                 </div>   
                             </label>
                         </div>
-                        <div class="mb-3">
+
+                        <div class = "mb-3">
                             <label>Special Offer
-                                <input type="Text" name="offerID" size="20" maxlength="30" class = "form-control">
+                                <select name = "offerID" id = "offers" class="form-select" aria-label="Default select example" >
+                                    <option value= "NULL" selected> -- None -- </option>
+                                    {{#each offers}}
+                                    <option value= "{{offer_ID}}"> {{offer_ID}}</option>
+                                    {{/each}}
+                                </select>
                             </label>
-                        </div>
+                        </div> 
                         <button type="submit" class="btn btn-secondary" value="CreateAccountType">ADD</button>
                     </fieldset>
                 </form>
