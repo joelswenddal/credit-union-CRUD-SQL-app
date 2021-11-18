@@ -14,17 +14,21 @@
         <p>This page allows you to add/edit/delete customers or filter search results by State</p>
     </div>
     <div class="row">
-        <div class = "mb-3">
+        <form id = "filter" method ="GET" action = "/planes">
+            <div class = "mb-3">
             <label>Filter By State
                 <select name = "state" id = "state" class="form-select" aria-label="Default select example" >
-                    <option value= "NULL" selected> -- None -- </option>
+                    <option value= "" selected> -- Select -- </option>
+                    <option value= "" selected> All </option>
                     {{#each states}}
                     <option value= "{{state}}"> {{state}}</option>
                     {{/each}}
                 </select>
             </label>
-            <button onclick="deleteCustomer({{state}})" class="btn btn-secondary">Filter</button>
-        </div> 
+            <button type = "submit" id ="filterState" class="btn btn-secondary">Filter</button>
+            </div> 
+        </form>
+        
     </div>
 
     <div class="row-justify-content-center">
