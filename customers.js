@@ -46,6 +46,7 @@ module.exports = function () {
           });
       }*/
 
+      
     function getCustomersByState(req, res, mysql, context, complete){
       var query = "SELECT customer_ID, ssn, first_name, middle_name, last_name, dob, street_address, city, state, zip, phone_number, email FROM customers WHERE state = ?";
       console.log(req.params)
@@ -56,8 +57,8 @@ module.exports = function () {
                 res.end();
             }
             
-            context.state = results;
-            console.log(context.state)
+            context.customers = results;
+            console.log(context.customers)
             complete();
         });
     }
