@@ -48,17 +48,18 @@ module.exports = function () {
 
     /*filter customer function, passes a new customers context onto customer page*/
     function getCustomersByState(req, res, mysql, context, complete){
-      var query = "SELECT customer_ID, ssn, first_name, middle_name, last_name, dob, street_address, city, state, zip, phone_number, email FROM customers WHERE state = ?";
-      console.log(req.params)
-      var inserts = [req.params.state]
-      mysql.pool.query(query, inserts, function(error, results, fields){
+        if (req.params.state == undefined){
+            var query = "SELECT customer_ID, ssn, first_name, middle_name, last_name, dob, street_address, city, state, zip, phone_number, email FROM customers"
+        } else {
+            var query = "SELECT customer_ID, ssn, first_name, middle_name, last_name, dob, street_address, city, state, zip, phone_number, email FROM customers WHERE state = ?";
+        }
+        var inserts = [req.params.state]
+        mysql.pool.query(query, inserts, function(error, results, fields){
             if(error){
                 res.write(JSON.stringify(error));
                 res.end();
             }
-            
             context.customers = results;
-            console.log(context.customers)
             complete();
         });
     }

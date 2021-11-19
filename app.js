@@ -5,7 +5,6 @@
 */
 
 const express = require('express');   // We are using the express library for the web server
-const { appendFileSync } = require('fs');
 var mysql = require('./db-connector.js');
 //var bodyParser = require('body-parser');
 const app = express();            // We need to instantiate an express object to interact with the server in our code
@@ -13,7 +12,7 @@ const handlebars = require('express-handlebars').create({
     defaultLayout: 'main',
 })
 
-const PORT = 34117;
+const PORT = 34118;
 
 app.engine('handlebars', handlebars.engine);
 //app.use(bodyParser.urlencoded({ extended: true }));
