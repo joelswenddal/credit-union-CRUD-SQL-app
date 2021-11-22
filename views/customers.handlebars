@@ -146,40 +146,31 @@
         </div>
 
         <div class="col">
-            <form action="/customers" method="POST">
+            <!--- this form does not submit directly, the button handles all the interaction with backend -->
+            <form id ="search" action="" method="">
                 <fieldset>
                     <legend>Search for Customer</legend>
                     <div class="mb-3">
                         <label>First Name
-                            <input type="text" name="firstName" size="20" maxlength="30" required="required"
-                                class="form-control">
-                        </label>
-                    </div>
-                    <div class="mb-3">
-                        <label>Middle Name
-                            <input type="text" name="middleName" size="20" maxlength="30" required="required"
-                                class="form-control">
+                            <input type="text" name="firstNameSearch" id = "firstNameSearch" size="20" maxlength="30" class="form-control" value ="">
                         </label>
                     </div>
                     <div class="mb-3">
                         <label>Last Name
-                            <input type="text" name="lastName" size="20" maxlength="30" required="required"
-                                class="form-control">
+                            <input type="text" name="lastNameSearch" id = "lastNameSearch" size="20" maxlength="30" class="form-control" value ="">
                         </label>
                     </div>
                     <div class="mb-3">
                         <label>SSN
-                            <input type="text" name="ssn" size="15" maxlength="11" required="required"
-                                class="form-control">
+                            <input type="text" name="ssnSearch" id = "ssnSearch" size="15" maxlength="11" class="form-control" value ="">
                         </label>
                     </div>
                     <div class="mb-3">
                         <label>DOB
-                            <input type="date" name="dob" size="30" maxlength="40" required="required"
-                                class="form-control">
+                            <input type="date" name="dobSearch" id = "dobSearch" size="30" maxlength="40" class="form-control" value ="">
                         </label>
                     </div>
-                    <button type="submit" class="btn btn-secondary" value="SearchCustomer">SEARCH</button>
+                    <button type="submit" class="btn btn-secondary" value="searchCustomer" onclick ="searchCustomers()">SEARCH</button>
                 </fieldset>
             </form>
         </div>

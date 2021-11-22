@@ -4,9 +4,10 @@ function updateCustomerByID(customer_id) {
         type: 'PUT',
         data: $('#updatecustomer').serialize(),
         success: function (result) {
-            window.location.replace("../");  // should it be ../ ? Experiment. Possible jquery quirk
+            window.location.replace("../");  
         }
     })
 };
 
-//WORKING ON THIS. INCORRECT TEMPLATE MAYBE
+
+
