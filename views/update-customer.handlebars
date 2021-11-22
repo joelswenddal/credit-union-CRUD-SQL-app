@@ -1,0 +1,67 @@
+<h1>Update {{customer.first_name}} {{customer.last_name}}</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form id="updatecustomer" action="/customers" method="POST">
+                <fieldset>
+                    <legend>Update a Customer</legend>
+                    <div class="mb-3">
+                        <label>First Name
+                            <input type="text" name="firstName" maxlength="30" required="required" class="form-control" value ="{{customer.first_name}}">
+                        </label>
+                    </div>
+                    <div class="mb-3">
+                        <label>Middle Name
+                            <input type="text" name="middleName" maxlength="30" class="form-control" value ="{{customer.middle_name}}">
+                        </label>
+                    </div>
+                    <div class="mb-3">
+                        <label>Last Name
+                            <input type="text" name="lastName" maxlength="30" required="required" class="form-control"value ="{{customer.last_name}}">
+                        </label>
+                    </div>
+                    <div class="mb-3">
+                        <label>SSN (No Hyphens)
+                            <input type="text" name="ssn" minlength="9" maxlength="9" class="form-control" value ="{{customer.ssn}}">
+                        </label>
+                    </div>
+                    <div class="mb-3">
+                        <label>DOB
+                            <input type="date" name="dob" maxlength="11" required="required" class="form-control" value ="{{customer.dob}}">
+                        </label>
+                    </div>
+                    <div class="mb-3">
+                        <label>Street Address
+                            <input type="text" name="street" maxlength="80" required="required" class="form-control" value ="{{customer.street_address}}">
+                        </label>
+                    </div>
+                    <div class="mb-3">
+                        <label>City
+                            <input type="text" name="city" maxlength="30" required="required" class="form-control" value ="{{customer.city}}">
+                        </label>
+                    </div>
+                    <div class="mb-3">
+                        <label>State
+                            <input type="text" name="state" maxlength="2" required="required"class="form-control text-uppercase" value ="{{customer.state}}">
+                        </label>
+                    </div>
+                    <div class="mb-3">
+                        <label>Zip
+                            <input type="number" name="zip" maxlength="5" class="form-control" min="00001" value ="{{customer.zip}}">
+                        </label>
+                    </div>
+                    <div class="mb-3">
+                        <label>Phone
+                            <input type="text" name="phone" maxlength="10" required="required" class="form-control " value ="{{customer.phone_number}}">
+                        </label>
+                    </div>
+                    <div class="mb-3">
+                        <label>Email
+                            <input type="email" name="email" maxlength="40" required="required" class="form-control" value ="{{customer.email}}">
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-secondary" value="updateCustomer" onclick="updateCustomerByID({{customer.customer_ID}})">Update</button>
+                </fieldset>
+            </form>
+        </div>
