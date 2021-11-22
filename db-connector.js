@@ -8,10 +8,9 @@ var pool = mysql.createPool({
 
     /* Template for GH push
     user: 'cs340_[onid]',
-    password: '[pass]',
+    password: '',
     database: 'cs340_[onid]'
     */
-
 
     user: 'cs340_voandre',
     password: '1986',

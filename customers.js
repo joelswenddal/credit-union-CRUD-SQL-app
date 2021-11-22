@@ -63,15 +63,15 @@ module.exports = function () {
       }
 
     /*filter customer function by state, passes a new customers context onto customer page*/
-    function getCustomersByState(req, res, mysql, context, complete){
-        if (req.params.state == undefined){
+    function getCustomersByState(req, res, mysql, context, complete) {
+        if (req.params.state == undefined) {
             var query = "SELECT customer_ID, ssn, first_name, middle_name, last_name, dob, street_address, city, state, zip, phone_number, email FROM customers"
         } else {
             var query = "SELECT customer_ID, ssn, first_name, middle_name, last_name, dob, street_address, city, state, zip, phone_number, email FROM customers WHERE state = ?";
         }
         var inserts = [req.params.state]
-        mysql.pool.query(query, inserts, function(error, results, fields){
-            if(error){
+        mysql.pool.query(query, inserts, function (error, results, fields) {
+            if (error) {
                 res.write(JSON.stringify(error));
                 res.end();
             }
@@ -81,12 +81,12 @@ module.exports = function () {
     }
 
     /*filter customer function by ID, passes a new customer context */
-    function getCustomersByID(req, res, mysql, context, complete){
-        
-        var query = "SELECT customer_ID, ssn, first_name, middle_name, last_name, dob, street_address, city, state, zip, phone_number, email FROM customers WHERE customer_ID = ?"; 
+    function getCustomersByID(req, res, mysql, context, complete) {
+
+        var query = "SELECT customer_ID, ssn, first_name, middle_name, last_name, dob, street_address, city, state, zip, phone_number, email FROM customers WHERE customer_ID = ?";
         var inserts = [req.params.id]
-        mysql.pool.query(query, inserts, function(error, results, fields){
-            if(error){
+        mysql.pool.query(query, inserts, function (error, results, fields) {
+            if (error) {
                 res.write(JSON.stringify(error));
                 res.end();
             }
@@ -105,7 +105,9 @@ module.exports = function () {
 
         var callbackCount = 0;
         var context = {};
+
         context.jsscripts = ["deletecustomer.js","filtercustomers.js","updatecustomer.js","searchcustomer.js"];  //added js script to context to make available for delete
+
         var mysql = req.app.get('mysql');
         getCustomers(res, mysql, context, complete);
         getStates(res, mysql, context, complete);
@@ -118,26 +120,28 @@ module.exports = function () {
     });
 
     /*Display all people from a given state. Requires web based javascript to delete users with AJAX*/
-    router.get('/:state', function(req, res){
+    router.get('/:state', function (req, res) {
         var callbackCount = 0;
         var context = {};
+
         context.jsscripts = ["deletecustomer.js","filtercustomers.js","updatecustomer.js","searchcustomer.js"];
+
         var mysql = req.app.get('mysql');
-        getCustomersByState(req,res, mysql, context, complete);
+        getCustomersByState(req, res, mysql, context, complete);
         getStates(res, mysql, context, complete);
-        function complete(){
+        function complete() {
             callbackCount++;
-            if(callbackCount >= 2){
+            if (callbackCount >= 2) {
                 res.render('customers', context);
             }
 
         }
     });
-    
+  
     /*Search customers by input */
     router.get('/search/:details', function(req, res){
 
-        
+  
         var callbackCount = 0;
         var context = {};
         context.jsscripts = ["deletecustomer.js","filtercustomers.js","updatecustomer.js","searchcustomer.js"];               
@@ -152,37 +156,39 @@ module.exports = function () {
     });
 
 
+
     /*Initial update customer redirect off main customer table UPDATE button on Customers page*/
     router.get('/update/:id', function(req, res){
         var callbackCount = 0;
         var context = {};
         context.jsscripts = ["deletecustomer.js","filtercustomers.js","updatecustomer.js","searchcustomer.js"];
+
         var mysql = req.app.get('mysql');
-        getCustomersByID(req,res, mysql, context, complete);
-        function complete(){
+        getCustomersByID(req, res, mysql, context, complete);
+        function complete() {
             callbackCount++;
-            if(callbackCount >= 1){
+            if (callbackCount >= 1) {
                 res.render('update-customer', context);
             }
 
         }
     });
 
-    /*This fn is for updating customer while on the redirected UPDATE page to apply the UPDATE*/        
-    router.put('/:id', function(req, res){
+    /* UPDATE customers. This fn is for updating customer while on the redirected UPDATE page to apply the UPDATE*/
+    router.put('/update/:id', function (req, res) {
         var mysql = req.app.get('mysql');
         console.log(req.body)
         console.log(req.params.id)
         var sql = "UPDATE customers SET first_name=?,middle_name=?,last_name=?,ssn=?,dob=?,street_address=?,city=?,state=?,zip=?,phone_number=?,email=? WHERE customer_ID=?";
         var inserts = [req.body.firstName, req.body.middleName, req.body.lastName,
-            req.body.ssn, req.body.dob, req.body.street, req.body.city, req.body.state, req.body.zip,
-            req.body.phone, req.body.email, req.params.id];
-        sql = mysql.pool.query(sql,inserts,function(error, results, fields){
-            if(error){
+        req.body.ssn, req.body.dob, req.body.street, req.body.city, req.body.state, req.body.zip,
+        req.body.phone, req.body.email, req.params.id];
+        sql = mysql.pool.query(sql, inserts, function (error, results, fields) {
+            if (error) {
                 console.log(error)
                 res.write(JSON.stringify(error));
                 res.end();
-            }else{
+            } else {
                 res.status(200);
                 res.end();
             }
