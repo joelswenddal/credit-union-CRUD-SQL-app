@@ -14,21 +14,21 @@
         <p>This page allows you to add/edit/delete customers or filter search results by State</p>
     </div>
     <div class="row">
-        <form id = "filter_customers" method ="" action = "">
-            <div class = "mb-3">
-            <label>Filter By State
-                <select name = "state" id = "state_filter" class="form-select" aria-label="Default select example" >
-                    <option value =""> -- Select -- </option>
-                    <option value = ""> All </option>
-                    {{#each states}}
-                    <option value= "{{state}}"> {{state}}</option>
-                    {{/each}}
-                </select>
-            </label>
-            <input type = "button" value = "Filter" onclick="filterCustomerByState()" class="btn btn-secondary">
-            </div> 
+        <form id="filter_customers" method="" action="">
+            <div class="mb-3">
+                <label>Filter By State
+                    <select name="state" id="state_filter" class="form-select" aria-label="Default select example">
+                        <option value=""> -- Select -- </option>
+                        <option value=""> All </option>
+                        {{#each states}}
+                        <option value="{{state}}"> {{state}}</option>
+                        {{/each}}
+                    </select>
+                </label>
+                <input type="button" value="Filter" onclick="filterCustomerByState()" class="btn btn-secondary">
+            </div>
         </form>
-        
+
     </div>
 
     <div class="row-justify-content-center">
@@ -53,7 +53,7 @@
                 <tbody>
                     {{#each customers}}
                     <tr>
-                        <td id = "customerID" value ="{{customer_ID}}">{{customer_ID}}</td>
+                        <td id="customerID" value="{{customer_ID}}">{{customer_ID}}</td>
                         <td>{{first_name}}</td>
                         <td>{{middle_name}}</td>
                         <td>{{last_name}}</td>
@@ -67,7 +67,8 @@
                         <td>{{email}}</td>
                         <td><a href="/customers/update/{{customer_ID}}" class="btn btn-secondary" role="button"
                                 aria-pressed="true">Update</a>
-                        <td><button onclick="deleteCustomer({{customer_ID}})" class="btn btn-secondary">Delete</button></td>
+                        <td><button onclick="deleteCustomer({{customer_ID}})" class="btn btn-secondary">Delete</button>
+                        </td>
 
                     </tr>
                     {{/each}}
