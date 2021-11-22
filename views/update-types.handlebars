@@ -1,0 +1,33 @@
+<div class="row">
+            <div class="col">
+                <form id = "addaccounttype" action = "/account_types" method="POST">
+                    <fieldset>
+                        <legend>Update Account Type</legend>
+                        <div class="mb-3">
+                            <label>Type Name
+                                <input type="text" name="accountType" size="20" maxlength="30" required="required" class = "form-control">
+                            </label>
+                        </div>
+                        <div class="mb-3">
+                            <label>Associated Interest Rate
+                                <div class = "input-group">
+                                    <input type="number" name="interestRate" step = "0.01" size="20" maxlength="30" required="required" class = "form-control">
+                                        <span class="input-group-text">%</span>
+                                </div>   
+                            </label>
+                        </div>
+
+                        <div class = "mb-3">
+                            <label>Special Offer
+                                <select name = "offerID" id = "offers" class="form-select" aria-label="Default select example" >
+                                    <option value= "NULL" selected> -- None -- </option>
+                                    {{#each offers}}
+                                    <option value= "{{offer_ID}}"> {{offer_ID}}</option>
+                                    {{/each}}
+                                </select>
+                            </label>
+                        </div> 
+                        <button type="submit" class="btn btn-secondary" value="CreateAccountType">ADD</button>
+                    </fieldset>
+                </form>
+            </div>
