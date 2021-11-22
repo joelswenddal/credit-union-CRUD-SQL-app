@@ -53,7 +53,7 @@
                 <tbody>
                     {{#each customers}}
                     <tr>
-                        <td>{{customer_ID}}</td>
+                        <td id = "customerID" value ="{{customer_ID}}">{{customer_ID}}</td>
                         <td>{{first_name}}</td>
                         <td>{{middle_name}}</td>
                         <td>{{last_name}}</td>
@@ -65,7 +65,7 @@
                         <td>{{zip}}</td>
                         <td>{{phone_number}}</td>
                         <td>{{email}}</td>
-                        <td><a href="/customers/{{customer_ID}}" class="btn btn-secondary" role="button"
+                        <td><a href="/customers/update/{{customer_ID}}" class="btn btn-secondary" role="button"
                                 aria-pressed="true">Update</a>
                         <td><button onclick="deleteCustomer({{customer_ID}})" class="btn btn-secondary">Delete</button></td>
 
