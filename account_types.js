@@ -60,6 +60,7 @@ module.exports = function () {
 
         context.jsscripts = ["deletecustomer.js","filtercustomers.js","updatecustomer.js","searchcustomer.js","deleteaccountscustomers.js", "updatetypes.js"];
 
+
         let mysql = req.app.get('mysql');
         getAccountTypes(res, mysql, context, complete);
         getOffers(res, mysql, context, complete);
@@ -96,7 +97,6 @@ module.exports = function () {
         var mysql = req.app.get('mysql');
         console.log(req.body);
         console.log(req.params.account_type);
-
 
         let sql = "UPDATE account_types SET interest_rate=?, offer_ID=? WHERE account_type=?";
         var inserts = [req.body.interestRate, req.body.offerID, req.params.account_type];
