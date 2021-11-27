@@ -33,6 +33,9 @@ module.exports = function () {
         
         let callbackCount = 0;
         let context = {};
+
+        context.jsscripts = ["deletecustomer.js","filtercustomers.js","updatecustomer.js","searchcustomer.js","deleteaccountscustomers.js", "updatetypes.js"];
+
         let mysql = req.app.get('mysql');
         getAccounts(res, mysql, context, complete);
         getTypes(res, mysql, context, complete)  /*to dynamically generate dropdown for account types*/
