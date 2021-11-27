@@ -74,6 +74,24 @@ module.exports = function () {
         });
     });
 
+        //WORK IN PROGRESS///
+        router.delete('/customer_ID/:customer_ID/account_ID/:account_ID', function(req, res){
+            console.log(req) 
+            console.log(req.params.customer_ID)
+            console.log(req.params.account_ID)
+            var mysql = req.app.get('mysql');
+            var sql = "DELETE FROM accounts_customers WHERE customer_ID = ? AND account_ID = ?";
+            var inserts = [req.params.customer_ID, req.params.account_ID];
+            sql = mysql.pool.query(sql, inserts, function(error, results, fields){
+                if(error){
+                    res.write(JSON.stringify(error));
+                    res.status(400); 
+                    res.end(); 
+                }else{
+                    res.status(202).end();
+                }
+            })
+        })
 
     return router;
 }();
