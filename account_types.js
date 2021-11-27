@@ -57,7 +57,9 @@ module.exports = function () {
     router.get('/', function (req, res) {
         let callbackCount = 0;
         let context = {};
-        context.jsscripts = ["updatetypes.js"];
+
+        context.jsscripts = ["deletecustomer.js","filtercustomers.js","updatecustomer.js","searchcustomer.js","deleteaccountscustomers.js", "updatetypes.js"];
+
 
         let mysql = req.app.get('mysql');
         getAccountTypes(res, mysql, context, complete);
