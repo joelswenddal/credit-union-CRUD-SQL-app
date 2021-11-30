@@ -1,24 +1,22 @@
-<html>
 <h1>Update {{account_type.account_type}}</h1>
-
 <div class="row">
     <div class="col">
-        <form id="updateaccounttype" action="/account_types" method="PUT">
+        <form id="updateaccounttype" action="/account_types" method="POST">
             <fieldset>
                 <legend>Update Account Type: {{account_type.account_type}}</legend>
 
                 <!--
                 <div class="mb-3">
-                    <label>Type Name: 
-                        
+                    <label>Type Name:
+
                         <input type="text" name="accountType" size="20" maxlength="30" required="required"
                             class="form-control" value="{{account_type.account_type}}">
-                            
+
                     </label>
                 </div>
                 -->
 
-                <div class="mb-3">
+                <div class=" mb-3">
                     <label>Associated Interest Rate
                         <div class="input-group">
                             <input type="number" name="interestRate" step="0.01" size="20" maxlength="30"
@@ -33,16 +31,14 @@
                         <select name="offerID" id="offers" class="form-select" aria-label="Default select example">
                             <option value="NULL" selected> -- None -- </option>
                             {{#each offers}}
-                            <option value="{{offer_ID}}"> {{offer_ID}}</option>
+                            <option value="{{offer_ID}}">{{offer_ID}}</option>
                             {{/each}}
                         </select>
                     </label>
                 </div>
                 <button type="submit" class="btn btn-secondary" value="updateAccountType"
-                    onclick="updateAccountTypeByType({{account_type.account_type}})">UPDATE</button>
+                    onclick="updateAccountTypeByType({{account_type.account_type}})"> UPDATE </button>
             </fieldset>
         </form>
     </div>
 </div>
-
-</html>
