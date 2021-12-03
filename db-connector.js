@@ -10,17 +10,17 @@ var pool = mysql.createPool({
     user: 'cs340_[onid]',
     password: '',
     database: 'cs340_[onid]'
-    
+    */
 
     user: 'cs340_voandre',
     password: '1986',
     database: 'cs340_voandre'
-    */
+    
 
-    user: 'cs340_swenddaj',
+    /*user: 'cs340_swenddaj',
     password: '1761',
     database: 'cs340_swenddaj'
-
+    */
 })
 
 // Export it for use in our application
