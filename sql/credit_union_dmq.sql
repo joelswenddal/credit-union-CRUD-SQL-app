@@ -10,8 +10,10 @@ ssn = :ssn_input, dob = :dob_input, street_address = :street_address_input, city
 WHERE customer_ID= :customer_ID_input
 -- delete a customer
 DELETE FROM customer WHERE customer_ID = :customer_ID_input AND ssn = :ssn_input
--- search/filter a customer
-SELECT * FROM customers WHERE first_name = :first_name_input AND middle_name = :middle_name_input AND last_name = :last_name_input AND ssn = :ssn_input AND dob = :dob_input
+-- search a customer by last name
+SELECT * FROM customers WHERE last_name = :last_name_input
+-- search a customer by state
+SELECT * FROM customers WHERE state = :state_input
 
 
 -- Accounts Page --
