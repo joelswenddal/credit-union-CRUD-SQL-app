@@ -3,6 +3,7 @@
 
 DROP TABLE IF EXISTS customers;
 
+/*creates customer entity*/
 CREATE TABLE customers (
     customer_ID int (9) NOT NULL AUTO_INCREMENT,
     ssn varchar(9),
@@ -24,6 +25,7 @@ CREATE TABLE customers (
 
 DROP TABLE IF EXISTS accounts;
 
+/*creates accounts entity*/
 CREATE TABLE accounts (
     account_ID int (9) NOT NULL AUTO_INCREMENT,
     account_type varchar(40) NOT NULL,
@@ -36,6 +38,7 @@ CREATE TABLE accounts (
 
 DROP TABLE IF EXISTS account_types;
 
+/*creates account_types entity*/
 CREATE TABLE account_types (
     account_type varchar(40) NOT NULL,
     offer_ID int (9),
@@ -51,6 +54,7 @@ CREATE TABLE account_types (
 
 DROP TABLE IF EXISTS special_offers;
 
+/*creates special offers entity*/
 CREATE TABLE special_offers (
     offer_ID int (9) NOT NULL AUTO_INCREMENT,
     chequebook varchar(10),
@@ -63,6 +67,7 @@ CREATE TABLE special_offers (
  
 DROP TABLE IF EXISTS transactions;
 
+/*creates transactions entity*/
 CREATE TABLE transactions (
     transaction_ID int (9) NOT NULL AUTO_INCREMENT,
     account_ID int (9) NOT NULL,
@@ -77,7 +82,6 @@ CREATE TABLE transactions (
 DROP TABLE IF EXISTS accounts_customers;
 
 /*Set up intersection table for M:M relationship*/
-
 CREATE TABLE accounts_customers (
     account_ID int (9) NOT NULL,
     customer_ID int (9) NOT NULL,
@@ -91,7 +95,6 @@ CREATE TABLE accounts_customers (
     ENGINE=InnoDB;
 
 /*Set up additional relationships/foreign keys*/
-
 ALTER TABLE accounts
 ADD CONSTRAINT fk_account_type
 FOREIGN KEY (account_type)
@@ -112,7 +115,7 @@ REFERENCES accounts(account_ID)
 ON DELETE CASCADE;
 
 /* Dumping data for table `customers` */
-
+/*default db table insertions for each table */
 LOCK TABLES customers WRITE;
 
 INSERT INTO customers

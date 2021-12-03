@@ -20,8 +20,9 @@
                         <td>{{account_type}}</td>
                         <td>{{interest_rate}}%</td>
                         <td>{{offer_ID}}</td>
-                        <!-- <td><a href="/account_types/update/{{account_type}}" class="btn btn-secondary" role="button"
-                                aria-pressed="true">Update</a> -->
+                        <!--<td><a href="/account_types/update/{{account_type}}" class="btn btn-secondary" role="button"
+                                aria-pressed="true">Update</a>
+                        -->
                     </tr>
                     {{/each}}
                 </tbody>
@@ -42,7 +43,7 @@
                     <div class="mb-3">
                         <label>Associated Interest Rate
                             <div class="input-group">
-                                <input type="number" name="interestRate" step="0.01" size="20" maxlength="30"
+                                <input type="number" name="interestRate" step="0.01" size="20" maxlength="30" min="0.00"
                                     required="required" class="form-control">
                                 <span class="input-group-text">%</span>
                             </div>
@@ -50,7 +51,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label>Special Offer
+                        <label>Special Offer (nullable offer_ID FK)
                             <select name="offerID" id="offers" class="form-select" aria-label="Default select example">
                                 <option value="NULL" selected> -- None -- </option>
                                 {{#each offers}}
