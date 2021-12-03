@@ -23,7 +23,6 @@ function filterCustomerByState() {
 }
 
 
-//window.location.replace('/customers/' + state_abbreviation
 
 
 
