@@ -13,7 +13,7 @@
 <div class="container">
     <div class="row">
         <h1>Manage Customers</h1>
-        <p>This page allows you to add/edit/delete customers or filter search results by State</p>
+        <p>This page allows you to add/edit/delete customers, filter table by state, or search Customer by last name</p>
     </div>
     <div class="row">
         <form id="filter_customers" method="" action="">
@@ -27,7 +27,7 @@
                         {{/each}}
                     </select>
                 </label>
-                <input type="button" value="Filter" onclick="filterCustomerByState()" class="btn btn-secondary">
+                <input type="button" value="FILTER" onclick="filterCustomerByState()" class="btn btn-secondary">
             </div>
         </form>
 
@@ -68,10 +68,10 @@
                         <td>{{phone_number}}</td>
                         <td>{{email}}</td>
                         <td><a href="/customers/update/{{customer_ID}}" class="btn btn-secondary" role="button"
-                                aria-pressed="true">Update</a>
+                                aria-pressed="true">UPDATE</a>
 
                         <td><button onclick="deleteCustomer({{customer_ID}})" class="btn btn-secondary"
-                                id="deleteAlertBtn">Delete</button>
+                                id="deleteAlertBtn">DELETE</button>
                         </td>
 
                     </tr>
@@ -143,13 +143,13 @@
                         </div>
                         <div class="col-2">
                             <label>Phone
-                                <input type="text" name="phone" maxlength="10" required="required"
+                                <input type="text" name="phone" maxlength="10" 
                                     class="form-control ">
                             </label>
                         </div>
                         <div class="col-2">
                             <label>Email
-                                <input type="email" name="email" maxlength="40" required="required"
+                                <input type="email" name="email" maxlength="40" 
                                     placeholder="joesmith@example.com" class="form-control">
                             </label>
                         </div>

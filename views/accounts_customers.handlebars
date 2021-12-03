@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row">
         <h1>Manage Accounts_Customers</h1>
-        <p>This page allows you to add/remove Account_Customer entries</p>
+        <p>This page allows you to add/remove Account_Customer entries. Relevant entity tables will be untouched upon DELETE.</p>
     </div>
     <div class="row-justify-content-center">
         <div class="col">
@@ -18,7 +18,7 @@
                     <tr>
                         <td scope="row">{{account_ID}}</td>
                         <td scope="row">{{customer_ID}}</td>
-                        <td><button onclick ="deleteAccountCustomer({{customer_ID}}, {{account_ID}})" class="btn btn-secondary">Delete</button></td>
+                        <td><button onclick ="deleteAccountCustomer({{customer_ID}}, {{account_ID}})" class="btn btn-secondary">DELETE</button></td>
                     </tr>
                     {{/each}}
                 </tbody>
