@@ -3,7 +3,7 @@ module.exports = function () {
     var router = express.Router();
 
 
-   ////////////////////////////
+    ////////////////////////////
     // FUNCTIONS
     ////////////////////////////
 
@@ -36,7 +36,7 @@ module.exports = function () {
     }
 
     /* search customers via text */
-    function searchCustomers(req, res, mysql, context, complete) {
+    /*function searchCustomers(req, res, mysql, context, complete) {
         //sanitize the input as well as include the % character
 
 
@@ -61,6 +61,25 @@ module.exports = function () {
               complete();
           });
       }
+    */
+
+    /* search by first name string match*/
+
+    function getCustomerWithLastName(req, res, mysql, context, complete) {
+
+        var query = "SELECT customer_ID, ssn, first_name, middle_name, last_name, dob, street_address, city, state, zip, phone_number, email FROM customers WHERE last_name LIKE " + mysql.pool.escape(req.params.last + '%');
+        //console.log(query);
+
+        mysql.pool.query(query, function (error, results, fields) {
+            if (error) {
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            context.customers = results;
+            console.log("First record is: " + JSON.stringify(context.customers[0]));
+            complete();
+        });
+    }
 
     /*filter customer function by state, passes a new customers context onto customer page*/
     function getCustomersByState(req, res, mysql, context, complete) {
@@ -98,7 +117,7 @@ module.exports = function () {
     ////////////////////////////
     // ROUTES
     ////////////////////////////
-    
+
 
     /*Display all customers*/
     router.get('/', function (req, res) {
@@ -106,7 +125,7 @@ module.exports = function () {
         var callbackCount = 0;
         var context = {};
 
-        context.jsscripts = ["deletecustomer.js","filtercustomers.js","updatecustomer.js","searchcustomer.js"];  //added js script to context to make available for delete
+        context.jsscripts = ["deletecustomer.js", "filtercustomers.js", "updatecustomer.js", "searchcustomer.js"];  //added js script to context to make available for delete
 
         var mysql = req.app.get('mysql');
         getCustomers(res, mysql, context, complete);
@@ -124,7 +143,7 @@ module.exports = function () {
         var callbackCount = 0;
         var context = {};
 
-        context.jsscripts = ["deletecustomer.js","filtercustomers.js","updatecustomer.js","searchcustomer.js"];
+        context.jsscripts = ["deletecustomer.js", "filtercustomers.js", "updatecustomer.js", "searchcustomer.js"];
 
         var mysql = req.app.get('mysql');
         getCustomersByState(req, res, mysql, context, complete);
@@ -137,31 +156,39 @@ module.exports = function () {
 
         }
     });
-  
-    /*Search customers by input */
-    router.get('/search/:details', function(req, res){
 
-  
+    /*Search customers by last name input */
+    //router.get('/search/:details', function (req, res) {
+    router.get('/search/:last', function (req, res) {
+
         var callbackCount = 0;
         var context = {};
-        context.jsscripts = ["deletecustomer.js","filtercustomers.js","updatecustomer.js","searchcustomer.js"];               
-        searchCustomers(req, res, mysql, context, complete);
+        context.jsscripts = ["deletecustomer.js", "filtercustomers.js", "updatecustomer.js", "searchcustomer.js"];
+        var mysql = req.app.get('mysql');
+        //searchCustomers(req, res, mysql, context, complete);
+        getCustomerWithLastName(req, res, mysql, context, complete);
         getStates(res, mysql, context, complete);
-        function complete(){
+        function complete() {
             callbackCount++;
-            if(callbackCount >= 2){
-                res.render('customers', context);
+            if (callbackCount >= 2) {
+                if (context.customers[0] != null) {
+                    res.render('customers', context);
+                }
+                //in this case, context.customers[0] is null; no results found
+                else {
+                    console.log("No results returned by name search. Redirecting to /customers page");
+                    res.redirect('/customers');
+                }
             }
         }
     });
 
 
-
     /*Initial update customer redirect off main customer table UPDATE button on Customers page*/
-    router.get('/update/:id', function(req, res){
+    router.get('/update/:id', function (req, res) {
         var callbackCount = 0;
         var context = {};
-        context.jsscripts = ["deletecustomer.js","filtercustomers.js","updatecustomer.js","searchcustomer.js"];
+        context.jsscripts = ["deletecustomer.js", "filtercustomers.js", "updatecustomer.js", "searchcustomer.js"];
 
         var mysql = req.app.get('mysql');
         getCustomersByID(req, res, mysql, context, complete);
@@ -170,7 +197,6 @@ module.exports = function () {
             if (callbackCount >= 1) {
                 res.render('update-customer', context);
             }
-
         }
     });
 

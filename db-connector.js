@@ -16,6 +16,7 @@ var pool = mysql.createPool({
     password: '1986',
     database: 'cs340_voandre'
 
+
 })
 
 // Export it for use in our application

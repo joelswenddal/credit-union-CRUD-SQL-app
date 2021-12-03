@@ -1,7 +1,7 @@
 <html>
 
 
-<div class = "container">
+<div class="container">
     <h1>Update Account Type: {{account_type.account_type}}</h1>
     <div class="row">
         <div class="col">
@@ -9,16 +9,16 @@
                 <fieldset>
 
 
-                    <!--
-                    <div class="mb-3">
-                        <label>Type Name: 
 
-                            <input type="text" name="accountType" size="20" maxlength="30" required="required"
+                    <div class="mb-3">
+                        <label>
+
+                            <input type="hidden" name="accountType" size="20" maxlength="30" required="required"
                                 class="form-control" value="{{account_type.account_type}}">
 
                         </label>
                     </div>
-                    -->
+
 
                     <div class="mb-3">
                         <label>Associated Interest Rate
@@ -41,10 +41,11 @@
                         </label>
                     </div>
                     <button type="submit" class="btn btn-secondary" value="updateAccountType"
-                        onclick="updateAccountTypeByType({{account_type.account_type}})">UPDATE</button>
+                        onclick="updateAccountTypeByType('{{account_type.account_type}}')">UPDATE</button>
                 </fieldset>
             </form>
         </div>
     </div>
 </div>
+
 </html>
