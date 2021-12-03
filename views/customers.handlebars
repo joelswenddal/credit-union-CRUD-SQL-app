@@ -69,8 +69,9 @@
                         <td>{{email}}</td>
                         <td><a href="/customers/update/{{customer_ID}}" class="btn btn-secondary" role="button"
                                 aria-pressed="true">Update</a>
-                        
-                        <td><button onclick="deleteCustomer({{customer_ID}})" class="btn btn-secondary" id="deleteAlertBtn">Delete</button>
+
+                        <td><button onclick="deleteCustomer({{customer_ID}})" class="btn btn-secondary"
+                                id="deleteAlertBtn">Delete</button>
                         </td>
 
                     </tr>
@@ -87,9 +88,10 @@
                 <fieldset>
                     <legend>Add a Customer</legend>
                     <div class="row">
-                        <div class= "col-2">
+                        <div class="col-2">
                             <label>First Name
-                                <input type="text" name="firstName" maxlength="30" required="required" class="form-control">
+                                <input type="text" name="firstName" maxlength="30" required="required"
+                                    class="form-control">
                             </label>
                         </div>
                         <div class="col-2">
@@ -99,7 +101,8 @@
                         </div>
                         <div class="col-2">
                             <label>Last Name
-                                <input type="text" name="lastName" maxlength="30" required="required" class="form-control">
+                                <input type="text" name="lastName" maxlength="30" required="required"
+                                    class="form-control">
                             </label>
                         </div>
                         <div class="col-2">
@@ -107,17 +110,18 @@
                                 <input type="text" name="ssn" minlength="9" maxlength="9" class="form-control">
                             </label>
                         </div>
-                        
+
 
                         <div class="col-2">
                             <label>Street Address
-                                <input type="text" name="street" maxlength="80" required="required" class="form-control">
+                                <input type="text" name="street" maxlength="80" required="required"
+                                    class="form-control">
                             </label>
                         </div>
                         <div class="col-2">
                             <label>DOB
-                                  <input type="date" name="dob" maxlength="11" required="required" class="form-control">
-                              </label>
+                                <input type="date" name="dob" maxlength="11" required="required" class="form-control">
+                            </label>
                         </div>
                     </div>
                     <div class="row">
@@ -139,7 +143,8 @@
                         </div>
                         <div class="col-2">
                             <label>Phone
-                                <input type="text" name="phone" maxlength="10" required="required" class="form-control ">
+                                <input type="text" name="phone" maxlength="10" required="required"
+                                    class="form-control ">
                             </label>
                         </div>
                         <div class="col-2">
@@ -156,39 +161,45 @@
             </form>
         </div>
         <br>
+
         <div class="col">
             <!--- this form does not submit directly, the button handles all the interaction with backend -->
-            <form id ="search" action="" method="">
+            <form id="search" action="" method="">
                 <fieldset>
-                    <legend>Search for Customer</legend>
+                    <legend>Search for Customer by Last Name</legend>
+                    <!--
                     <div class="row">
                         <div class="col-2">
                             <label>First Name
-                                <input type="text" name="firstNameSearch" id = "firstNameSearch" size="20" maxlength="30" class="form-control" value ="">
+                                <input type="text" name="firstNameSearch" id="firstNameSearch" size="20" maxlength="30"
+                                    class="form-control" value="">
                             </label>
                         </div>
-                        <div class="col-2">
-                            <label>Last Name
-                                <input type="text" name="lastNameSearch" id = "lastNameSearch" size="20" maxlength="30" class="form-control" value ="">
-                            </label>
-                        </div>
+                    -->
+                    <div class="col-2">
+                        <label>Last Name
+                            <input type="text" name="lastNameSearch" id="lastNameSearch" size="20" maxlength="30"
+                                class="form-control" name="lastNameSearch" value="">
+                        </label>
+                    </div>
+                    <!--
                         <div class="col-2">
                             <label>SSN
-                                <input type="text" name="ssnSearch" id = "ssnSearch" size="15" maxlength="11" class="form-control" value ="">
+                                <input type="text" name="ssnSearch" id="ssnSearch" size="15" maxlength="11"
+                                    class="form-control" value="">
                             </label>
                         </div>
-                    </div>
+                        -->
+
                     <br>
-                    <button type="submit" class="btn btn-secondary" value="searchCustomer" onclick ="searchCustomers()">SEARCH</button>
+                    <!--<button type="submit" class="btn btn-secondary" value="searchCustomer"
+                        onclick="searchCustomersByLast()">SEARCH</button> -->
+                    <input type="button" value="SEARCH" onclick="searchCustomersByLast()" class="btn btn-secondary">
                 </fieldset>
             </form>
         </div>
     </div>
 </div>
-</div>
 
-<div>
-
-</div>
 
 </html>
