@@ -60,7 +60,7 @@
                         <td>{{middle_name}}</td>
                         <td>{{last_name}}</td>
                         <td>{{ssn}}</td>
-                        <td>{{dob}}</td>
+                        <td>{{dateFormat dob}}</td>
                         <td>{{street_address}}</td>
                         <td>{{city}}</td>
                         <td class="text-uppercase">{{state}}</td>
@@ -81,7 +81,7 @@
         </div>
     </div>
 </div>
-<div class="container" >
+<div class="container">
     <div class=>
         <div class=>
             <form id="addcustomer" action="/customers" method="POST">
@@ -143,14 +143,13 @@
                         </div>
                         <div class="col-2">
                             <label>Phone
-                                <input type="text" name="phone" maxlength="10" 
-                                    class="form-control ">
+                                <input type="text" name="phone" maxlength="10" class="form-control ">
                             </label>
                         </div>
                         <div class="col-2">
                             <label>Email
-                                <input type="email" name="email" maxlength="40" 
-                                    placeholder="joesmith@example.com" class="form-control">
+                                <input type="email" name="email" maxlength="40" placeholder="joesmith@example.com"
+                                    class="form-control">
                             </label>
                         </div>
                     </div>
@@ -164,13 +163,13 @@
     </div>
 </div>
 
-<div class = "container ">
+<div class="container ">
     <div class="col">
-            <!--- this form does not submit directly, the button handles all the interaction with backend -->
-            <form id="search" action="" method="">
-                <fieldset>
-                    <legend>Search for Customer by Last Name</legend>
-                    <!--
+        <!--- this form does not submit directly, the button handles all the interaction with backend -->
+        <form id="search" action="" method="">
+            <fieldset>
+                <legend>Search for Customer by Last Name</legend>
+                <!--
                     <div class="row">
                         <div class="col-2">
                             <label>First Name
@@ -179,13 +178,13 @@
                             </label>
                         </div>
                     -->
-                    <div class="col-2">
-                        <label>Last Name
-                            <input type="text" name="lastNameSearch" id="lastNameSearch" size="20" maxlength="30"
-                                class="form-control" name="lastNameSearch" value="">
-                        </label>
-                    </div>
-                    <!--
+                <div class="col-2">
+                    <label>Last Name
+                        <input type="text" name="lastNameSearch" id="lastNameSearch" size="20" maxlength="30"
+                            class="form-control" name="lastNameSearch" value="">
+                    </label>
+                </div>
+                <!--
                         <div class="col-2">
                             <label>SSN
                                 <input type="text" name="ssnSearch" id="ssnSearch" size="15" maxlength="11"
@@ -194,13 +193,13 @@
                         </div>
                         -->
 
-                    <br>
-                    <!--<button type="submit" class="btn btn-secondary" value="searchCustomer"
+                <br>
+                <!--<button type="submit" class="btn btn-secondary" value="searchCustomer"
                         onclick="searchCustomersByLast()">SEARCH</button> -->
-                    <input type="button" value="SEARCH" onclick="searchCustomersByLast()" class="btn btn-secondary">
-                </fieldset>
-            </form>
-        </div>
+                <input type="button" value="SEARCH" onclick="searchCustomersByLast()" class="btn btn-secondary">
+            </fieldset>
+        </form>
+    </div>
 </div>
 
 

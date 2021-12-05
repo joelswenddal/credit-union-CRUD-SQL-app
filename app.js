@@ -6,16 +6,28 @@
 
 const express = require('express');   // We are using the express library for the web server
 var mysql = require('./db-connector.js');
-//var bodyParser = require('body-parser');
+
+var exprHandlebars = require('express-handlebars');
 const app = express();            // We need to instantiate an express object to interact with the server in our code
-const handlebars = require('express-handlebars').create({
-    defaultLayout: 'main',
+
+//part of handlebars - dateformat module -- Used for displaying custom date format
+const moment = require("moment");
+
+//include custom handlebars helper function for formatting date
+const handlebars = exprHandlebars.create({
+    helpers: {
+        dateFormat: function (date, options) {
+            const formatToUse = (arguments[1] && arguments[1].hash && arguments[1].hash.format) || "MM/DD/YYYY"
+            return moment(date).format(formatToUse);
+        }
+    },
+    defaultLayout: 'main'
 })
 
 const PORT = 34118;
 
 app.engine('handlebars', handlebars.engine);
-//app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(express.json());
 app.use(express.urlencoded({
     extended: true
@@ -32,9 +44,6 @@ app.use('/account_types', require('./account_types.js'));
 app.use('/special_offers', require('./special_offers.js'));
 app.use('/accounts_customers', require('./accounts_customers.js'));
 app.use('/transactions', require('./transactions.js'));
-
-//use public directory for serving static assets
-//app.use(express.static('public', { extensions: ['html'] }));
 
 app.use('/', express.static('public'));
 
