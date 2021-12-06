@@ -42,7 +42,7 @@ DROP TABLE IF EXISTS account_types;
 CREATE TABLE account_types (
     account_type varchar(40) NOT NULL,
     offer_ID int (9),
-    interest_rate decimal(2,2) NOT NULL,
+    interest_rate decimal(4,2) NOT NULL,
     PRIMARY KEY (account_type)
     )
     ENGINE=InnoDB;
