@@ -17,6 +17,7 @@ var pool = mysql.createPool({
     database: 'cs340_voandre'
 
 
+
 })
 
 // Export it for use in our application

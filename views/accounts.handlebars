@@ -5,6 +5,7 @@
     <div class="row">
         <h1>Manage Accounts</h1>
         <p>This page allows you to add accounts</p>
+        <p><b>Note:</b><i> Please use Google Chrome for navigating the site.</i></p>
     </div>
     <div class="row-justify-content-center">
         <div class="col">
@@ -28,26 +29,26 @@
             </table>
         </div>
     </div>
-<div class = "container"    
-    <div class="row">
+    <div class="container" <div class="row">
         <form id="addaccount" action="/accounts" method="POST">
             <fieldset>
                 <legend>Add Account</legend>
-                <div class = "mb-3">
+                <div class="mb-3">
                     <label>Account Type
-                        <select name = "accountType" id = "types" class="form-select" aria-label="Default select example">
+                        <select name="accountType" id="types" class="form-select" aria-label="Default select example">
                             {{#each types}}
-                            <option value= "{{account_type}}"> {{account_type}}</option>
+                            <option value="{{account_type}}"> {{account_type}}</option>
                             {{/each}}
                         </select>
                     </label>
-                </div> 
-                
+                </div>
+
                 <div class="mb-3">
                     <label>Balance
                         <div class="input-group">
                             <span class="input-group-text">$</span>
-                                <input type="number" name="balance" step ="0.01" class="form-control" placeholder="0.00" min="0.00" required>
+                            <input type="number" name="balance" step="0.01" class="form-control" placeholder="0.00"
+                                min="0.00" required>
                         </div>
                     </label>
                 </div>

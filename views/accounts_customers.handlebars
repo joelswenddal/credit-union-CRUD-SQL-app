@@ -2,7 +2,9 @@
 <div class="container">
     <div class="row">
         <h1>Manage Accounts_Customers</h1>
-        <p>This page allows you to add/remove Account_Customer entries. Relevant entity tables will be untouched upon DELETE.</p>
+        <p>This page allows you to add/remove Account_Customer entries. Relevant entity tables will be untouched upon
+            DELETE.</p>
+        <p><b>Note:</b><i> Please use Google Chrome for navigating the site.</i></p>
     </div>
     <div class="row-justify-content-center">
         <div class="col">
@@ -18,7 +20,8 @@
                     <tr>
                         <td scope="row">{{account_ID}}</td>
                         <td scope="row">{{customer_ID}}</td>
-                        <td><button onclick ="deleteAccountCustomer({{customer_ID}}, {{account_ID}})" class="btn btn-secondary">DELETE</button></td>
+                        <td><button onclick="deleteAccountCustomer({{customer_ID}}, {{account_ID}})"
+                                class="btn btn-secondary">DELETE</button></td>
                     </tr>
                     {{/each}}
                 </tbody>
@@ -30,7 +33,7 @@
             <form action="/accounts_customers" method="POST">
                 <fieldset>
                     <legend>Add a Customer to an existing Account</legend>
-                    
+
                     <!-- post project input verification
                     <div class="mb-3">
                         <label>Account ID
@@ -45,28 +48,30 @@
                     </div>
                     -->
 
-                    <div class = "mb-3">
+                    <div class="mb-3">
                         <label>Account ID
-                            <select name = "accountID" id = "accountID" class="form-select" aria-label="Default select example">
+                            <select name="accountID" id="accountID" class="form-select"
+                                aria-label="Default select example">
                                 {{#each accounts}}
-                                <option value= "{{account_ID}}"> {{account_ID}}</option>
+                                <option value="{{account_ID}}"> {{account_ID}}</option>
                                 {{/each}}
                             </select>
                         </label>
-                    </div> 
+                    </div>
 
-                    <div class = "mb-3">
+                    <div class="mb-3">
                         <label>Customer ID
-                            <select name = "customerID" id = "customerID" class="form-select" aria-label="Default select example">
+                            <select name="customerID" id="customerID" class="form-select"
+                                aria-label="Default select example">
                                 {{#each customers}}
-                                <option value= "{{customer_ID}}"> {{customer_ID}}</option>
+                                <option value="{{customer_ID}}"> {{customer_ID}}</option>
                                 {{/each}}
                             </select>
                         </label>
-                    </div> 
+                    </div>
 
 
-                    
+
                     <button type="submit" class="btn btn-secondary" value="CreateAccount_Customer">ADD</button>
                 </fieldset>
             </form>
