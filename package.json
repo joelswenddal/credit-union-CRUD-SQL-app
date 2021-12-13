@@ -2,6 +2,9 @@
   "name": "cs340_project_credit_union",
   "version": "1.0.0",
   "description": "cs340 Project - Group 24",
+  "engines": {
+    "node": "14.x"
+  },
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
