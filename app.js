@@ -24,7 +24,13 @@ const handlebars = exprHandlebars.create({
     defaultLayout: 'main'
 })
 
-const PORT = 34118;
+//const PORT = 34118;
+
+//added for Heroku deploy
+let port = process.env.PORT;
+if (port == null || port == "") {
+    port = 8000;
+}
 
 app.engine('handlebars', handlebars.engine);
 
@@ -59,6 +65,6 @@ app.use(function (err, req, res, next) {
 });
 
 
-app.listen(PORT, function () {
-    console.log('Express started on http://localhost:' + PORT + '; press Ctrl-C to terminate.')
+app.listen(port, function () {
+    console.log('Express started on http://localhost:' + port + '; press Ctrl-C to terminate.')
 });
