@@ -12,10 +12,6 @@ var pool = mysql.createPool({
     database: 'cs340_[onid]'
     */
 
-    user: 'cs340_voandre',
-    password: '1986',
-    database: 'cs340_voandre'
-
 
 
 })
