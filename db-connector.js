@@ -4,16 +4,10 @@ var mysql = require('mysql')
 // Create a 'connection pool' using the provided credentials
 var pool = mysql.createPool({
     connectionLimit: 10,
-    host: 'classmysql.engr.oregonstate.edu',
-
-    /* Template for GH push
-    user: 'cs340_[onid]',
-    password: '',
-    database: 'cs340_[onid]'
-    */
-
-
-
+    host: process.env.HOST,
+    user: process.env.USERNAME,
+    password: process.env.PASS,
+    database: process.env.DB,
 })
 
 // Export it for use in our application
